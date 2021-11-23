@@ -9,7 +9,7 @@ team("AXIS").
 type("CLASS_MEDIC").
 
 // Value of "closeness" to the Flag, when patrolling in defense
-patrollingRadius(64).
+patrollingRadius(24).
 
 
 
@@ -75,6 +75,8 @@ patrollingRadius(64).
  					    ?debug(Mode); if (Mode<=2) { .println("Aiming an enemy. . .", MyTeam, " ", .number(MyTeam) , " ", Team, " ", .number(Team)); }
 					    +aimed_agent(Object);
                         -+aimed("true");
+                        !perform_aim_action;
+                        .println("hace el seguimiento de bandera");
 
                     }
                     
@@ -118,23 +120,23 @@ patrollingRadius(64).
  *  It's very useful to overload this plan.
  *
  */
-+!perform_aim_action
+  +!perform_aim_action
     <-  // Aimed agents have the following format:
         // [#, TEAM, TYPE, ANGLE, DISTANCE, HEALTH, POSITION ]
+        +pr(3000);
         ?aimed_agent(AimedAgent);
-        ?debug(Mode); if (Mode<=1) { .println("AimedAgent ", AimedAgent); }
         .nth(1, AimedAgent, AimedAgentTeam);
-        ?debug(Mode); if (Mode<=2) { .println("BAJO EL PUNTO DE MIRA TENGO A ALGUIEN DEL EQUIPO ", AimedAgentTeam); }
         ?my_formattedTeam(MyTeam);
 
-
-        if (AimedAgentTeam == 100) {
-        
+        if (AimedAgentTeam == 100 | AimedAgentTeam == 1003) {        
             .nth(6, AimedAgent, NewDestination);
-            ?debug(Mode); if (Mode<=1) { .println("NUEVO DESTINO MARCADO: ", NewDestination); }
-            //update_destination(NewDestination);
+            ?pr(P);
+			!add_task(task(P, "TASK_GOTO_POSITION", "Manager", NewDestination, ""));
+			.print("persiguiendo a alguien");
+			-+state(standing);            			
+            -+pr(P+1);	
         }
-        .
+        .  
     
 /**
  * Action to do when the agent is looking at.
@@ -144,8 +146,26 @@ patrollingRadius(64).
  * <em> It's very useful to overload this plan. </em>
  *
  */
-+!perform_look_action .
-/// <- ?debug(Mode); if (Mode<=1) { .println("YOUR CODE FOR PERFORM_LOOK_ACTION GOES HERE.") }.
++!perform_look_action 
+/*<-	
+	?fovObjects(FOVObjects);
+	.length(FOVObjects, Length);
+	 +bucle(0);
+	 //vamos mirando los objetos, si detectamos que en la mira hay un enemigo, disparamos.
+	while (bucle(X) & (X < Length)){		
+		.nth(X, FOVObjects, Object); 
+		// Object structure
+        // [#, TEAM, TYPE, ANGLE, DISTANCE, HEALTH, POSITION ]
+        .nth(1, Object, Team);
+        //200 == "AXIS" , 100 == "ALLIED"
+        if (Team == 100){
+        	.println("SE tomar� una medida contra los enemigos");
+        	!shot(0);
+        }
+       
+		-+bucle(X+1);	
+	}
+	*/.
 
 /**
  * Action to do if this agent cannot shoot.
@@ -168,10 +188,14 @@ patrollingRadius(64).
  * <em> It's very useful to overload this plan. </em>
  *
  */
-+!perform_injury_action .
-///<- ?debug(Mode); if (Mode<=1) { .println("YOUR CODE FOR PERFORM_INJURY_ACTION GOES HERE.") }.
-
-
++!perform_injury_action 
+<-
+ //?my_health(health);
+ //if(health<75){
+ !add_task(task(4000, "TASK_GIVE_MEDICPACKS", M, pos(X, Y, Z), ""));
+ .println("me doy pack medico");
+ //}
+.
 /////////////////////////////////
 //  SETUP PRIORITIES
 /////////////////////////////////
@@ -181,10 +205,10 @@ patrollingRadius(64).
         +task_priority("TASK_GIVE_MEDICPAKS", 2000);
         +task_priority("TASK_GIVE_AMMOPAKS", 0);
         +task_priority("TASK_GIVE_BACKUP", 0);
-        +task_priority("TASK_GET_OBJECTIVE",1000);
+        +task_priority("TASK_GET_OBJECTIVE",0);
         +task_priority("TASK_ATTACK", 1000);
         +task_priority("TASK_RUN_AWAY", 1500);
-        +task_priority("TASK_GOTO_POSITION", 750);
+        +task_priority("TASK_GOTO_POSITION", 2500);
         +task_priority("TASK_PATROLLING", 500);
         +task_priority("TASK_WALKING_PATH", 750).   
 
@@ -278,6 +302,8 @@ patrollingRadius(64).
           
          .my_team("medic_AXIS", E2);
          //.println("Mi equipo medico: ", E2 );
+         !add_task(task(4000, "TASK_GIVE_MEDICPACKS", M, pos(X, Y, Z), ""));
+         .println("me doy pack medico");
          .concat("cfm(",X, ", ", Y, ", ", Z, ", ", Hr, ")", Content2);
          .send_msg_with_conversation_id(E2, tell, Content2, "CFM");
 
@@ -313,5 +339,7 @@ patrollingRadius(64).
 /////////////////////////////////
 
 +!init
-   <- ?debug(Mode); if (Mode<=1) { .println("YOUR CODE FOR init GOES HERE.")}.  
-
+   <- ?debug(Mode); if (Mode<=1) { .println("YOUR CODE FOR init GOES HERE.")}
+  ?tasks(TaskList);
+  ?my_position(X, Y, Z);
+   .  
