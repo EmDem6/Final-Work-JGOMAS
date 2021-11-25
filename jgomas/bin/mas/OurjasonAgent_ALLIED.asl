@@ -45,14 +45,20 @@ type("CLASS_SOLDIER").
 ?fovObjects(FOVObjects);
 .length(FOVObjects, Length);
 
+?tasks(Tasks);
+
+.println("Los task que tenemos : ", Tasks);
+
 ?debug(Mode); if (Mode<=1) { .println("El numero de objetos es:", Length); }
 
 if (Length > 0) {
     +bucle(0);
     
+    +dis(10000);
     -+aimed("false");
     
-    while (aimed("false") & bucle(X) & (X < Length)) {
+    //while (aimed("false") & bucle(X) & (X < Length)) {
+    while (dis(Dis) & bucle(X) & (X < Length)) {
         
         //.println("En el bucle, y X vale:", X);
         
@@ -68,15 +74,26 @@ if (Length > 0) {
         } else {
             // Object may be an enemy
             .nth(1, Object, Team);
+            .nth(4, Object, Dis2);
             ?my_formattedTeam(MyTeam);
+
+            if (Team == 100 & (Dis2 < Dis)) {  // My own team
+				
+                ?debug(Mode); if (Mode<=2) { .println("Aiming an enemy. . .", MyTeam, " ", .number(MyTeam) , " ", Team, " ", .number(Team)); }
+                //+aimed_agent(Object);
+                -+aimed("false");
+                -+dis(Dis);
+            }
             
-            if (Team == 200) {  // Only if I'm ALLIED
+            if (Team == 200 & (Dis2 < Dis)) {  // Only if I'm ALLIED
 				
                 ?debug(Mode); if (Mode<=2) { .println("Aiming an enemy. . .", MyTeam, " ", .number(MyTeam) , " ", Team, " ", .number(Team)); }
                 +aimed_agent(Object);
                 -+aimed("true");
-                
+                -+dis(Dis);
             }
+
+            
             
         }
         
@@ -87,6 +104,8 @@ if (Length > 0) {
     
 }
 
+
+-dis(_);
 -bucle(_).
 
 /////////////////////////////////
@@ -128,9 +147,13 @@ if (Length > 0) {
 
 
         if (AimedAgentTeam == 200) {
-    
+                .my_name(M);
                 .nth(6, AimedAgent, NewDestination);
                 ?debug(Mode); if (Mode<=1) { .println("NUEVO DESTINO DEBERIA SER: ", NewDestination); }
+
+                .println("Hemos entrado aquí y vamos a meter un nuevo task xd");
+                !add_task(task(5000, "TASK_ATTACK", M, NewDestination, ""));
+                
           
             }
  .
