@@ -47,7 +47,7 @@ type("CLASS_SOLDIER").
 
 ?tasks(Tasks);
 
-.println("Los task que tenemos : ", Tasks);
+//.println("Los task que tenemos : ", Tasks);
 
 ?debug(Mode); if (Mode<=1) { .println("El numero de objetos es:", Length); }
 
@@ -83,6 +83,7 @@ if (Length > 0) {
                 //+aimed_agent(Object);
                 -+aimed("false");
                 -+dis(Dis);
+                
             }
             
             if (Team == 200 & (Dis2 < Dis)) {  // Only if I'm ALLIED
@@ -100,6 +101,9 @@ if (Length > 0) {
         -+bucle(X+1);
         
     }
+
+    ?aimed(Aim);
+    .println("Aimed vale:", Aim);
     
     
 }
