@@ -46,7 +46,7 @@ patrollingRadius(64).
         .length(FOVObjects, Length);
         
         ?debug(Mode); if (Mode<=1) { .println("El numero de objetos es:", Length); }
-        /*
+        
         if (Length > 0) {
 		    +bucle(0);
     
@@ -87,7 +87,7 @@ patrollingRadius(64).
          
         }
 
-     -bucle(_)*/.
+     -bucle(_).
 
         
 

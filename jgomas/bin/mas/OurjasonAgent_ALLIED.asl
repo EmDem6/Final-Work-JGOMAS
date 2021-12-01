@@ -51,7 +51,24 @@ type("CLASS_SOLDIER").
 
 ?debug(Mode); if (Mode<=1) { .println("El numero de objetos es:", Length); }
 
-if (Length > 0) {
+if (objectivePackTaken(on))
+{
+    ?my_position(X, Y, Z);
+    .my_team("ALLIED", E);
+    .concat("goto(",X, ", ", Y, ", ", Z, ")", Content);
+
+    .println("Sending message to the my team");
+    .send_msg_with_conversation_id(E, tell, Content, "INT");
+
+}
+
+/*
+if (objectivePackTaken(on))
+{
+    -+aimed("false");
+
+} else {
+    if (Length > 0) {
     +bucle(0);
     
     +dis(10000);
@@ -107,10 +124,14 @@ if (Length > 0) {
     
     
 }
-
-
 -dis(_);
--bucle(_).
+-bucle(_);
+}*/
+
+
+
+
+.
 
 /////////////////////////////////
 //  LOOK RESPONSE
@@ -335,6 +356,18 @@ if (Length > 0) {
       -cfa_refuse.  
 
 
+
+
++goto(X,Y,Z)[source(A)]
+<-
+    .my_name(M);
+    if (M == A) {
+        
+    } else 
+    {
+        !add_task(task(5000, "TASK_GOTO_POSITION", A, pos(X,Y,Z), ""));
+    }
+.
 
 /////////////////////////////////
 //  Initialize variables
