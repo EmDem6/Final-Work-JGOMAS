@@ -47,44 +47,56 @@ patrollingRadius(24).
         
         ?debug(Mode); if (Mode<=1) { .println("El numero de objetos es:", Length); }
         
-        if (Length > 0) {
-		    +bucle(0);
-    
-            -+aimed("false");
-    
-            while (aimed("false") & bucle(X) & (X < Length)) {
-  
-                //.println("En el bucle, y X vale:", X);
+        if(Length > 0) {
+        +bucle(0);
+        
+        -+aimed("false");
+        
+        while (not no_shoot("true") & bucle(X) & (X < Length)) {
+            
+            //.println("En el bucle, y X vale:", X);
+            
+            .nth(X, FOVObjects, Object);
+            // Object structure
+            // [#, TEAM, TYPE, ANGLE, DISTANCE, HEALTH, POSITION ]
+            .nth(2, Object, Type);
+            
+            ?debug(Mode); if (Mode<=2) { .println("Objeto Analizado: ", Object); }
+            
+            if (Type > 1000) {
+                ?debug(Mode); if (Mode<=2) { .println("I found some object."); }
+            } else {
+                // Object may be an enemy
+                .nth(1, Object, Team);
+                ?my_formattedTeam(MyTeam);
                 
-                .nth(X, FOVObjects, Object);
-                // Object structure 
-                // [#, TEAM, TYPE, ANGLE, DISTANCE, HEALTH, POSITION ]
-                .nth(2, Object, Type);
-                
-                ?debug(Mode); if (Mode<=2) { .println("Objeto Analizado: ", Object); }
-                
-                if (Type > 1000) {
-                    ?debug(Mode); if (Mode<=2) { .println("I found some object."); }
-                } else {
-                    // Object may be an enemy
-                    .nth(1, Object, Team);
-                    ?my_formattedTeam(MyTeam);
-          
-                    if (Team == 100 ) {  // Only if I'm AXIS
-				
- 					    ?debug(Mode); if (Mode<=2) { .println("Aiming an enemy. . .", MyTeam, " ", .number(MyTeam) , " ", Team, " ", .number(Team)); }
-					    +aimed_agent(Object);
-                        -+aimed("true");
-                        !perform_aim_action;
-                        .println("hace el seguimiento de bandera");
-
-                    }
+                if (Team == 100) {  // Only if I'm ALLIED
                     
+                    ?debug(Mode); if (Mode<=2) { .println("Aiming an enemy. . .", MyTeam, " ", .number(MyTeam) , " ", Team, " ", .number(Team)); }
+                    +aimed_agent(Object);
+                    -+aimed("true");
+                    
+                }  else {
+                    if (Team == 200) {
+                        .nth(3, Object, Angle);
+                        if (math.abs(Angle) < 0.1) {
+                            +no_shoot("true");
+                            .println("ALLIES in front, not aiming!");
+                        } 
+                    }
                 }
-             
-                -+bucle(X+1);
                 
             }
+            -+bucle(X+1);
+        }
+
+        if (no_shoot("true")) {
+            -aimed_agent(_);
+            -+aimed("false");
+            -no_shoot("true");
+        }
+    }
+
                      
        
         }
