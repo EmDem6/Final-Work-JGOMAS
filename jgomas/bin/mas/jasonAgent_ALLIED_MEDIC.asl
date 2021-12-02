@@ -11,20 +11,14 @@ type("CLASS_MEDIC").
 
 
 
-{ include("jgomas.asl") }
-
-
-
-
+{ include("jgomas.asl")
+}
 // Plans
-
-
 /*******************************
 *
 * Actions definitions
 *
 *******************************/
-
 /////////////////////////////////
 //  GET AGENT TO AIM 
 /////////////////////////////////  
@@ -40,11 +34,13 @@ type("CLASS_MEDIC").
  * 
  */
 +!get_agent_to_aim
-<-  ?debug(Mode); if (Mode<=2) { .println("Looking for agents to aim."); }
+<-  ?debug(Mode); if (Mode<=2) { .println("Looking for agents to aim.");
+}
 ?fovObjects(FOVObjects);
 .length(FOVObjects, Length);
 
-?debug(Mode); if (Mode<=1) { .println("El numero de objetos es:", Length); }
+?debug(Mode); if (Mode<=1) { .println("El numero de objetos es:", Length);
+}
 
 if (Length > 0) {
     +bucle(0);
@@ -52,7 +48,6 @@ if (Length > 0) {
     -+aimed("false");
     
     while (aimed("false") & bucle(X) & (X < Length)) {
-        
         //.println("En el bucle, y X vale:", X);
         
         .nth(X, FOVObjects, Object);
@@ -60,30 +55,31 @@ if (Length > 0) {
         // [#, TEAM, TYPE, ANGLE, DISTANCE, HEALTH, POSITION ]
         .nth(2, Object, Type);
         
-        ?debug(Mode); if (Mode<=2) { .println("Objeto Analizado: ", Object); }
+        ?debug(Mode); if (Mode<=2) { .println("Objeto Analizado: ", Object);
+        }
         
         if (Type > 1000) {
-            ?debug(Mode); if (Mode<=2) { .println("I found some object."); }
+            ?debug(Mode); if (Mode<=2) { .println("I found some object.");
+            }
         } else {
             // Object may be an enemy
             .nth(1, Object, Team);
             ?my_formattedTeam(MyTeam);
             
-            if (Team == 200) {  // Only if I'm ALLIED
+            if (Team == 200) { // Only if I'm ALLIED
 				
-                ?debug(Mode); if (Mode<=2) { .println("Aiming an enemy. . .", MyTeam, " ", .number(MyTeam) , " ", Team, " ", .number(Team)); }
+                ?debug(Mode); if (Mode<=2) { .println("Aiming an enemy. . .", MyTeam,
+                    " ", .number(MyTeam) ,
+                    " ", Team,
+                    " ", .number(Team));
+                }
                 +aimed_agent(Object);
                 -+aimed("true");
-                
             }
-            
         }
         
         -+bucle(X+1);
-        
     }
-    
-   
 }
 
 -bucle(_).
@@ -91,13 +87,15 @@ if (Length > 0) {
 /////////////////////////////////
 //  LOOK RESPONSE
 /////////////////////////////////
-+look_response(FOVObjects)[source(M)]
-    <-  //-waiting_look_response;
++look_response(FOVObjects)[source(M)
+]
+    <- //-waiting_look_response;
         .length(FOVObjects, Length);
         if (Length > 0) {
-            ///?debug(Mode); if (Mode<=1) { .println("HAY ", Length, " OBJETOS A MI ALREDEDOR:\n", FOVObjects); }
-        };    
-        -look_response(_)[source(M)];
+    ///?debug(Mode); if (Mode<=1) { .println("HAY ", Length, " OBJETOS A MI ALREDEDOR:\n", FOVObjects); }
+};    
+        -look_response(_)[source(M)
+];
         -+fovObjects(FOVObjects);
         //.//;
         !look.
@@ -117,21 +115,23 @@ if (Length > 0) {
 * 
 */
 +!perform_aim_action
-    <-  // Aimed agents have the following format:
+    <- // Aimed agents have the following format:
         // [#, TEAM, TYPE, ANGLE, DISTANCE, HEALTH, POSITION ]
         ?aimed_agent(AimedAgent);
-        ?debug(Mode); if (Mode<=1) { .println("AimedAgent ", AimedAgent); }
+        ?debug(Mode); if (Mode<=1) { .println("AimedAgent ", AimedAgent);
+}
         .nth(1, AimedAgent, AimedAgentTeam);
-        ?debug(Mode); if (Mode<=2) { .println("BAJO EL PUNTO DE MIRA TENGO A ALGUIEN DEL EQUIPO ", AimedAgentTeam);             }
+        ?debug(Mode); if (Mode<=2) { .println("BAJO EL PUNTO DE MIRA TENGO A ALGUIEN DEL EQUIPO ", AimedAgentTeam);
+}
         ?my_formattedTeam(MyTeam);
 
 
         if (AimedAgentTeam == 200) {
     
                 .nth(6, AimedAgent, NewDestination);
-                ?debug(Mode); if (Mode<=1) { .println("NUEVO DESTINO DEBERIA SER: ", NewDestination); }
-          
-            }
+                ?debug(Mode); if (Mode<=1) { .println("NUEVO DESTINO DEBERIA SER: ", NewDestination);
+    }
+}
  .
 
 /**
@@ -144,7 +144,6 @@ if (Length > 0) {
 */
 +!perform_look_action .
    /// <- ?debug(Mode); if (Mode<=1) { .println("YOUR CODE FOR PERFORM_LOOK_ACTION GOES HERE.") }. 
-
 /**
 * Action to do if this agent cannot shoot.
 * 
@@ -156,7 +155,6 @@ if (Length > 0) {
 */  
 +!perform_no_ammo_action . 
    /// <- ?debug(Mode); if (Mode<=1) { .println("YOUR CODE FOR PERFORM_NO_AMMO_ACTION GOES HERE.") }.
-    
 /**
      * Action to do when an agent is being shot.
      * 
@@ -168,24 +166,52 @@ if (Length > 0) {
      */
 +!perform_injury_action .
     ///<- ?debug(Mode); if (Mode<=1) { .println("YOUR CODE FOR PERFORM_INJURY_ACTION GOES HERE.") }. 
-        
-
 /////////////////////////////////
 //  SETUP PRIORITIES
 /////////////////////////////////
 /**  You can change initial priorities if you want to change the behaviour of each agent  **/+!setup_priorities
-    <-  +task_priority("TASK_NONE",0);
-        +task_priority("TASK_GIVE_MEDICPAKS", 2000);
-        +task_priority("TASK_GIVE_AMMOPAKS", 0);
-        +task_priority("TASK_GIVE_BACKUP", 0);
-        +task_priority("TASK_GET_OBJECTIVE",1000);
-        +task_priority("TASK_ATTACK", 1000);
-        +task_priority("TASK_RUN_AWAY", 1500);
-        +task_priority("TASK_GOTO_POSITION", 750);
-        +task_priority("TASK_PATROLLING", 500);
-        +task_priority("TASK_WALKING_PATH", 1750).   
+    <-  +task_priority("TASK_NONE",
+0);
+        +task_priority("TASK_GIVE_MEDICPAKS",
+2000);
+        +task_priority("TASK_GIVE_AMMOPAKS",
+0);
+        +task_priority("TASK_GIVE_BACKUP",
+0);
+        +task_priority("TASK_GET_OBJECTIVE",
+1000);
+        +task_priority("TASK_ATTACK",
+1000);
+        +task_priority("TASK_RUN_AWAY",
+1500);
+        +task_priority("TASK_GOTO_POSITION",
+750);
+        +task_priority("TASK_PATROLLING",
+500);
+        +task_priority("TASK_WALKING_PATH",
+1750).   
 
-
++teammateMessageIncoming(Z)[source(A)
+]
+<- 
+?teamMessagesExpected(Y);
+?myTeamList(TeamList);
+.length(TeamList, Length);
++bucle(0);
+-+teamMessage("false");
+.println(TeamList);
+while (teamMessage("false") & bucle(X) & (X < Length)) {
+   .nth(X, TeamList, TeamMember);
+   .println("Iterating team members: ", TeamMember);
+   //if el source fue uno de mi equipo entonces teamMessage true
+   if(TeamMember == A){
+    teamMessage("true");
+    }
+   -+bucle(X+1);
+}
+    if(teamMessage("true")){
+    +teamMessagesExpected(Y+1);
+}.
 
 /////////////////////////////////
 //  UPDATE TARGETS
@@ -200,7 +226,8 @@ if (Length > 0) {
  *
  */
 +!update_targets
-	<-	?debug(Mode); if (Mode<=1) { .println("YOUR CODE FOR UPDATE_TARGETS GOES HERE.") }.
+	<-	?debug(Mode); if (Mode<=1) { .println("YOUR CODE FOR UPDATE_TARGETS GOES HERE.")
+}.
 	
 	
 	
@@ -215,11 +242,21 @@ if (Length > 0) {
  * <em> It's very useful to overload this plan. </em>
  *
  */
+
  +!checkMedicAction
-     <-  -+medicAction(on).
+     <-  
+?teamMessagesExpected(Y);
+    ?debug(Mode); if (Mode<=3) { .println("Team messages expected: ", Y)
+}
+    if(Y > 0){
+    +teamMessagesExpected(Y-1);
+    ?debug(Mode); if (Mode<=3) { .println("Esperaba un mensaje, voy a ayudar")}
+    -+medicAction(on);
+    }else{
+        ?debug(Mode); if (Mode<=3) { .println("No esperaba ningun mensaje, no voy a ayudar")}
+        -+medicAction(false);
+}.
       // go to help
-      
-      
 /////////////////////////////////
 //  CHECK FIELDOPS ACTION (ONLY FIELDOPS)
 /////////////////////////////////
@@ -234,9 +271,6 @@ if (Length > 0) {
  +!checkAmmoAction
      <-  -+fieldopsAction(on).
       //  go to help
-
-
-
 /////////////////////////////////
 //  PERFORM_TRESHOLD_ACTION
 /////////////////////////////////
@@ -251,7 +285,8 @@ if (Length > 0) {
 +!performThresholdAction
        <-
        
-       ?debug(Mode); if (Mode<=1) { .println("YOUR CODE FOR PERFORM_TRESHOLD_ACTION GOES HERE.") }
+       ?debug(Mode); if (Mode<=1) { .println("YOUR CODE FOR PERFORM_TRESHOLD_ACTION GOES HERE.")
+}
        
        ?my_ammo_threshold(At);
        ?my_ammo(Ar);
@@ -261,11 +296,14 @@ if (Length > 0) {
           
          .my_team("fieldops_ALLIED", E1);
          //.println("Mi equipo intendencia: ", E1 );
-         .concat("cfa(",X, ", ", Y, ", ", Z, ", ", Ar, ")", Content1);
-         .send_msg_with_conversation_id(E1, tell, Content1, "CFA");
-       
-       
-       }
+         .concat("cfa(",X,
+    ", ", Y,
+    ", ", Z,
+    ", ", Ar,
+    ")", Content1);
+         .send_msg_with_conversation_id(E1, tell, Content1,
+    "CFA");
+}
        
        ?my_health_threshold(Ht);
        ?my_health(Hr);
@@ -275,10 +313,14 @@ if (Length > 0) {
           
          .my_team("medic_ALLIED", E2);
          //.println("Mi equipo medico: ", E2 );
-         .concat("cfm(",X, ", ", Y, ", ", Z, ", ", Hr, ")", Content2);
-         .send_msg_with_conversation_id(E2, tell, Content2, "CFM");
-
-       }
+         .concat("cfm(",X,
+    ", ", Y,
+    ", ", Z,
+    ", ", Hr,
+    ")", Content2);
+         .send_msg_with_conversation_id(E2, tell, Content2,
+    "CFM");
+}
        .
        
 /////////////////////////////////
@@ -287,20 +329,28 @@ if (Length > 0) {
 
 
     
-+cfm_agree[source(M)]
-   <- ?debug(Mode); if (Mode<=1) { .println("YOUR CODE FOR cfm_agree GOES HERE.")};
++cfm_agree[source(M)
+]
+   <- ?debug(Mode); if (Mode<=1) { .println("YOUR CODE FOR cfm_agree GOES HERE.")
+};
       -cfm_agree.  
 
-+cfa_agree[source(M)]
-   <- ?debug(Mode); if (Mode<=1) { .println("YOUR CODE FOR cfa_agree GOES HERE.")};
++cfa_agree[source(M)
+]
+   <- ?debug(Mode); if (Mode<=1) { .println("YOUR CODE FOR cfa_agree GOES HERE.")
+};
       -cfa_agree.  
 
-+cfm_refuse[source(M)]
-   <- ?debug(Mode); if (Mode<=1) { .println("YOUR CODE FOR cfm_refuse GOES HERE.")};
++cfm_refuse[source(M)
+]
+   <- ?debug(Mode); if (Mode<=1) { .println("YOUR CODE FOR cfm_refuse GOES HERE.")
+};
       -cfm_refuse.  
 
-+cfa_refuse[source(M)]
-   <- ?debug(Mode); if (Mode<=1) { .println("YOUR CODE FOR cfa_refuse GOES HERE.")};
++cfa_refuse[source(M)
+]
+   <- ?debug(Mode); if (Mode<=1) { .println("YOUR CODE FOR cfa_refuse GOES HERE.")
+};
       -cfa_refuse.  
 
 
@@ -309,5 +359,18 @@ if (Length > 0) {
 /////////////////////////////////
 
 +!init
-   <- ?debug(Mode); if (Mode<=1) { .println("YOUR CODE FOR init GOES HERE.")}.  
+   <- ?debug(Mode); if (Mode<=1) { .println("YOUR CODE FOR init GOES HERE.")
+};
+     
+   if (team("AXIS")){
+    .my_team("AXIS", E1);
+    .my_team("ALLIED", E2);
+}
+if (team("ALLIED")){
+    .my_team("ALLIED", E1);
+    .my_team("AXIS", E2);
+}
+    +teamMessagesExpected(1);
+    +myTeamList(E1);
+    +enemyTeamList(E2);.  
 

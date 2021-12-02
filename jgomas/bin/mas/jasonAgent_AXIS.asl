@@ -40,15 +40,21 @@ patrollingRadius(24).
  * <em> It's very useful to overload this plan. </em>
  * 
  */
+
 +!get_agent_to_aim
     <-  ?debug(Mode); if (Mode<=2) { .println("Looking for agents to aim."); }
         ?fovObjects(FOVObjects);
         .length(FOVObjects, Length);
+        ?myTeamList(TeamList);
+        //.println("My team is: ", TeamList);
+
+        ?enemyTeamList(EnemyTeamList);
+        //.println("My enemy team is: ", EnemyTeamList);
         
         ?debug(Mode); if (Mode<=1) { .println("El numero de objetos es:", Length); }
         
         .my_team("ALLIED", E1);
-        .concat("cfh(",0, ", ", 0, ", ", 0, ", ", 15, ")", Content1);
+        .concat("cfm(",0, ", ", 0, ", ", 0, ", ", 15, ")", Content1);
         .send_msg_with_conversation_id(E1, tell, Content1, "INT");
 
         if (Length > 0) {
@@ -339,4 +345,16 @@ patrollingRadius(24).
    <- ?debug(Mode); if (Mode<=1) { .println("YOUR CODE FOR init GOES HERE.")}
   ?tasks(TaskList);
   ?my_position(X, Y, Z);
+  
+    if (team("AXIS")){
+        .my_team("AXIS", E1);
+        .my_team("ALLIED", E2);
+    }
+    if (team("ALLIED")){
+        .my_team("ALLIED", E1);
+        .my_team("AXIS", E2);
+    }
+
+  +myTeamList(E1);
+  +enemyTeamList(E2);
    .  
