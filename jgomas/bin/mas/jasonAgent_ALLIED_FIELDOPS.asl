@@ -52,6 +52,8 @@ if (Length > 0) {
     +bucle(0);
     
     -+aimed("false");
+
+    !safe_to_shoot;
     
     while (aimed("false") & bucle(X) & (X < Length) & seeingAllied("true")) {
         
