@@ -51,7 +51,7 @@ if (Length > 0) {
     
     -+aimed("false");
     
-    while (aimed("false") & bucle(X) & (X < Length)) {
+    while (aimed("false") & bucle(X) & (X < Length) & seeingAllied("true")) {
         
         //.println("En el bucle, y X vale:", X);
         
