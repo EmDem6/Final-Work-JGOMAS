@@ -48,14 +48,11 @@ type("CLASS_SOLDIER").
 ?debug(Mode); if (Mode<=1) { .println("El numero de objetos es:", Length); }
 
 if (Length > 0) {
-    // TODO: si no funciona, borrar
-    !safe_to_shoot;
-
     +bucle(0);
     
     -+aimed("false");
     
-    while (aimed("false") & bucle(X) & (X < Length) & seeingAllied("true")) {
+    while (aimed("false") & bucle(X) & (X < Length)) {
         
         //.println("En el bucle, y X vale:", X);
         
@@ -91,36 +88,6 @@ if (Length > 0) {
 }
 
 -bucle(_).
-
-
-// PARA NO DISPARAR A LOS ALIADOS
-// TODO: probar si funciona
-+!safe_to_shoot
-    <-  
-    ?debug(Mode); if (Mode<=2) { .println("Checking whether there are friends within my line of sight."); }
-    +seeingAllied("true");
-    ?fovObjects(FOVObjects);
-    .length(FOVObjects, Length);
-    
-    +bucle(0);
-
-    while (bucle(X) & (X < Length)) {
-        .nth(X, FOVObjects, Object);
-        // Object structure
-        // [#, TEAM, TYPE, ANGLE, DISTANCE, HEALTH, POSITION ]
-        .nth(2, Object, Type);
-
-        // Object may be an enemy
-        .nth(1, Object, Team);
-        ?my_formattedTeam(MyTeam);
-
-        if (Team == 100){
-            ?debug(Mode); if (Mode<=2) { .println("There is a friend in my line of sight."); }
-            -seeingAllied("true");
-        }
-        -+bucle(X+1);
-    }
-    -bucle(_).
 
 /////////////////////////////////
 //  LOOK RESPONSE
