@@ -52,8 +52,10 @@ if (Length > 0) {
     +bucle(0);
     
     -+aimed("false");
+
+    !safe_to_shoot;
     
-    while (aimed("false") & bucle(X) & (X < Length)) {
+    while (aimed("false") & bucle(X) & (X < Length) & seeingAllied("true")) {
         
         //.println("En el bucle, y X vale:", X);
         
@@ -89,6 +91,35 @@ if (Length > 0) {
 }
 
 -bucle(_).
+
+// PARA NO DISPARAR A LOS ALIADOS
+// TODO: probar si funciona
++!safe_to_shoot
+    <-  
+    ?debug(Mode); if (Mode<=2) { .println("Checking whether there are friends within my line of sight."); }
+    +seeingAllied("true");
+    ?fovObjects(FOVObjects);
+    .length(FOVObjects, Length);
+    
+    +bucle(0);
+
+    while (bucle(X) & (X < Length)) {
+        .nth(X, FOVObjects, Object);
+        // Object structure
+        // [#, TEAM, TYPE, ANGLE, DISTANCE, HEALTH, POSITION ]
+        .nth(2, Object, Type);
+
+        // Object may be an enemy
+        .nth(1, Object, Team);
+        ?my_formattedTeam(MyTeam);
+
+        if (Team == 100){
+            ?debug(Mode); if (Mode<=2) { .println("There is a friend in my line of sight."); }
+            -seeingAllied("true");
+        }
+        -+bucle(X+1);
+    }
+    -bucle(_).
 
 /////////////////////////////////
 //  LOOK RESPONSE
@@ -312,4 +343,3 @@ if (Length > 0) {
 
 +!init
    <- ?debug(Mode); if (Mode<=1) { .println("YOUR CODE FOR init GOES HERE.")}.  
-
