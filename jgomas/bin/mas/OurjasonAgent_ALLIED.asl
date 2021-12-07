@@ -1,4 +1,4 @@
-debug(2).
+debug(3).
 
 // Name of the manager
 manager("Manager").
@@ -13,6 +13,8 @@ type("CLASS_SOLDIER").
 
 
 { include("jgomas.asl") }
+
+
 
 
 // Plans
@@ -39,103 +41,97 @@ type("CLASS_SOLDIER").
 * 
 */  
 +!get_agent_to_aim
-    <-  ?debug(Mode); if (Mode<=2) { .println("Looking for agents to aim."); }
-    ?fovObjects(FOVObjects);
-    .length(FOVObjects, Length);
+<-  ?debug(Mode); if (Mode<=2) { .println("Looking for agents to aim."); }
+?fovObjects(FOVObjects);
+.length(FOVObjects, Length);
 
-    ?debug(Mode); if (Mode<=1) { .println("El numero de objetos es:", Length); }
+?tasks(Tasks);
 
-    if (objectivePackTaken(on))
-    {
-        ?my_position(X, Y, Z);
-        .my_team("ALLIED", E);
-        .concat("goto(",X, ", ", Y, ", ", Z, ")", Content);
+//.println("Los task que tenemos : ", Tasks);
 
-        .println("Sending message to the my team");
-        .send_msg_with_conversation_id(E, tell, Content, "INT");
-    } else {
-        if(Length > 0) {
-            +bucle(0);
-            
-            -+aimed("false");
-            
-            while (not no_shoot("true") & bucle(X) & (X < Length)) {
-                
-                //.println("En el bucle, y X vale:", X);
-                
-                .nth(X, FOVObjects, Object);
-                // Object structure
-                // [#, TEAM, TYPE, ANGLE, DISTANCE, HEALTH, POSITION ]
-                .nth(2, Object, Type);
-                
-                ?debug(Mode); if (Mode<=2) { .println("Objeto Analizado: ", Object); }
-                
-                if (Type > 1000) {
-                    ?debug(Mode); if (Mode<=2) { .println("I found some object."); }
-                } else {
-                    // Object may be an enemy
-                    .nth(1, Object, Team);
-                    ?my_formattedTeam(MyTeam);
-                    
-                    if (Team == 200) {  // Only if I'm ALLIED
-                        
-                        ?debug(Mode); if (Mode<=2) { .println("Aiming an enemy. . .", MyTeam, " ", .number(MyTeam) , " ", Team, " ", .number(Team)); }
-                        +aimed_agent(Object);
-                        -+aimed("true");
-                        
-                    }  else {
-                        if (Team == 100) {
-                            .nth(3, Object, Angle);
-                            if (math.abs(Angle) < 0.1) {
-                                +no_shoot("true");
-                                .println("ALLIES in front, not aiming!");
-                            } 
-                        }
-                    }
-                    
-                }
-                -+bucle(X+1);
-            }
+?debug(Mode); if (Mode<=1) { .println("El numero de objetos es:", Length); }
 
-            if (no_shoot("true")) {
-                -aimed_agent(_);
-                -+aimed("false");
-                -no_shoot("true");
-            }
-        }
-    }
+if (objectivePackTaken(on))
+{
+    ?my_position(X, Y, Z);
+    .my_team("ALLIED", E);
+    .concat("goto(",X, ", ", Y, ", ", Z, ")", Content);
 
-    -bucle(_).
+    .println("Sending message to the my team");
+    .send_msg_with_conversation_id(E, tell, Content, "INT");
 
+}
 
-// PARA NO DISPARAR A LOS ALIADOS
-// TODO: probar si funciona
-+!safe_to_shoot
-    <-  
-    ?debug(Mode); if (Mode<=2) { .println("Checking whether there are friends within my line of sight."); }
-    +seeingAllied("false");
-    ?fovObjects(FOVObjects);
-    .length(FOVObjects, Length);
-    
+/*
+if (objectivePackTaken(on))
+{
+    -+aimed("false");
+
+} else {
+    if (Length > 0) {
     +bucle(0);
-
-    while (bucle(X) & (X < Length)) {
+    
+    +dis(10000);
+    -+aimed("false");
+    
+    //while (aimed("false") & bucle(X) & (X < Length)) {
+    while (dis(Dis) & bucle(X) & (X < Length)) {
+        
+        //.println("En el bucle, y X vale:", X);
+        
         .nth(X, FOVObjects, Object);
         // Object structure
         // [#, TEAM, TYPE, ANGLE, DISTANCE, HEALTH, POSITION ]
         .nth(2, Object, Type);
+        
+        ?debug(Mode); if (Mode<=2) { .println("Objeto Analizado: ", Object); }
+        
+        if (Type > 1000) {
+            ?debug(Mode); if (Mode<=2) { .println("I found some object."); }
+        } else {
+            // Object may be an enemy
+            .nth(1, Object, Team);
+            .nth(4, Object, Dis2);
+            ?my_formattedTeam(MyTeam);
 
-        // Object may be an enemy
-        .nth(1, Object, Team);
-        ?my_formattedTeam(MyTeam);
+            if (Team == 100 & (Dis2 < Dis)) {  // My own team
+				
+                ?debug(Mode); if (Mode<=2) { .println("Aiming an enemy. . .", MyTeam, " ", .number(MyTeam) , " ", Team, " ", .number(Team)); }
+                //+aimed_agent(Object);
+                -+aimed("false");
+                -+dis(Dis);
+                
+            }
+            
+            if (Team == 200 & (Dis2 < Dis)) {  // Only if I'm ALLIED
+				
+                ?debug(Mode); if (Mode<=2) { .println("Aiming an enemy. . .", MyTeam, " ", .number(MyTeam) , " ", Team, " ", .number(Team)); }
+                +aimed_agent(Object);
+                -+aimed("true");
+                -+dis(Dis);
+            }
 
-        if (Team == 100){
-            ?debug(Mode); if (Mode<=2) { .println("There is a friend in my line of sight."); }
-            -seeingAllied("false");
+            
+            
         }
+        
         -+bucle(X+1);
+        
     }
-    -bucle(_).
+
+    ?aimed(Aim);
+    .println("Aimed vale:", Aim);
+    
+    
+}
+-dis(_);
+-bucle(_);
+}*/
+
+
+
+
+.
 
 /////////////////////////////////
 //  LOOK RESPONSE
@@ -176,9 +172,13 @@ type("CLASS_SOLDIER").
 
 
         if (AimedAgentTeam == 200) {
-    
+                .my_name(M);
                 .nth(6, AimedAgent, NewDestination);
                 ?debug(Mode); if (Mode<=1) { .println("NUEVO DESTINO DEBERIA SER: ", NewDestination); }
+
+                .println("Hemos entrado aquí y vamos a meter un nuevo task xd");
+                !add_task(task(5000, "TASK_ATTACK", M, NewDestination, ""));
+                
           
             }
  .
@@ -356,6 +356,8 @@ type("CLASS_SOLDIER").
       -cfa_refuse.  
 
 
+
+
 +goto(X,Y,Z)[source(A)]
 <-
     .my_name(M);
@@ -372,7 +374,4 @@ type("CLASS_SOLDIER").
 /////////////////////////////////
 
 +!init
-   <- ?debug(Mode); if (Mode<=1) { .println("YOUR CODE FOR init GOES HERE.")}.  
-
-
-
+   <- ?debug(Mode); if (Mode<=1) { .println("YOUR CODE FOR init GOES HERE.")}.
