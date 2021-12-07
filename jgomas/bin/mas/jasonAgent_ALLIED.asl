@@ -1,4 +1,4 @@
-debug(2).
+debug(3).
 
 // Name of the manager
 manager("Manager").
@@ -47,95 +47,65 @@ type("CLASS_SOLDIER").
 
     if (objectivePackTaken(on))
     {
-        ?my_position(X, Y, Z);
-        .my_team("ALLIED", E);
-        .concat("goto(",X, ", ", Y, ", ", Z, ")", Content);
-
-        .println("Sending message to the my team");
-        .send_msg_with_conversation_id(E, tell, Content, "INT");
-    } else {
-        if(Length > 0) {
-            +bucle(0);
+        .println("Flag taken! Sending help message to the my team!");
+        +order(help);
+        // TODO: se puede hacer? Preguntar German?
+        /*-+my_health_threshold(0);
+        -+my_ammo_threshold(0);*/
+    }
+        
+    if(Length > 0) {
+        +bucle(0);
+        
+        -+aimed("false");
+        
+        while (not no_shoot("true") & bucle(X) & (X < Length)) {
             
-            -+aimed("false");
+            //.println("En el bucle, y X vale:", X);
             
-            while (not no_shoot("true") & bucle(X) & (X < Length)) {
+            .nth(X, FOVObjects, Object);
+            // Object structure
+            // [#, TEAM, TYPE, ANGLE, DISTANCE, HEALTH, POSITION ]
+            .nth(2, Object, Type);
+            
+            ?debug(Mode); if (Mode<=2) { .println("Objeto Analizado: ", Object); }
+            
+            if (Type > 1000) {
+                ?debug(Mode); if (Mode<=2) { .println("I found some object."); }
+            } else {
+                // Object may be an enemy
+                .nth(1, Object, Team);
+                ?my_formattedTeam(MyTeam);
                 
-                //.println("En el bucle, y X vale:", X);
-                
-                .nth(X, FOVObjects, Object);
-                // Object structure
-                // [#, TEAM, TYPE, ANGLE, DISTANCE, HEALTH, POSITION ]
-                .nth(2, Object, Type);
-                
-                ?debug(Mode); if (Mode<=2) { .println("Objeto Analizado: ", Object); }
-                
-                if (Type > 1000) {
-                    ?debug(Mode); if (Mode<=2) { .println("I found some object."); }
-                } else {
-                    // Object may be an enemy
-                    .nth(1, Object, Team);
-                    ?my_formattedTeam(MyTeam);
+                if (Team == 200) {  // Only if I'm ALLIED
                     
-                    if (Team == 200) {  // Only if I'm ALLIED
-                        
-                        ?debug(Mode); if (Mode<=2) { .println("Aiming an enemy. . .", MyTeam, " ", .number(MyTeam) , " ", Team, " ", .number(Team)); }
-                        +aimed_agent(Object);
-                        -+aimed("true");
-                        
-                    }  else {
-                        if (Team == 100) {
-                            .nth(3, Object, Angle);
-                            if (math.abs(Angle) < 0.1) {
-                                +no_shoot("true");
-                                .println("ALLIES in front, not aiming!");
-                            } 
-                        }
+                    ?debug(Mode); if (Mode<=2) { .println("Aiming an enemy. . .", MyTeam, " ", .number(MyTeam) , " ", Team, " ", .number(Team)); }
+                    +aimed_agent(Object);
+                    -+aimed("true");
+                    
+                }  else {
+                    if (Team == 100) {
+                        .nth(3, Object, Angle);
+                        if (math.abs(Angle) < 0.1) {
+                            +no_shoot("true");
+                            .println("ALLIES in front, not aiming!");
+                        } 
                     }
-                    
                 }
-                -+bucle(X+1);
+                
             }
+            -+bucle(X+1);
+        }
 
-            if (no_shoot("true")) {
-                -aimed_agent(_);
-                -+aimed("false");
-                -no_shoot("true");
-            }
+        if (no_shoot("true")) {
+            -aimed_agent(_);
+            -+aimed("false");
+            -no_shoot("true");
         }
     }
 
     -bucle(_).
 
-
-// PARA NO DISPARAR A LOS ALIADOS
-// TODO: probar si funciona
-+!safe_to_shoot
-    <-  
-    ?debug(Mode); if (Mode<=2) { .println("Checking whether there are friends within my line of sight."); }
-    +seeingAllied("false");
-    ?fovObjects(FOVObjects);
-    .length(FOVObjects, Length);
-    
-    +bucle(0);
-
-    while (bucle(X) & (X < Length)) {
-        .nth(X, FOVObjects, Object);
-        // Object structure
-        // [#, TEAM, TYPE, ANGLE, DISTANCE, HEALTH, POSITION ]
-        .nth(2, Object, Type);
-
-        // Object may be an enemy
-        .nth(1, Object, Team);
-        ?my_formattedTeam(MyTeam);
-
-        if (Team == 100){
-            ?debug(Mode); if (Mode<=2) { .println("There is a friend in my line of sight."); }
-            -seeingAllied("false");
-        }
-        -+bucle(X+1);
-    }
-    -bucle(_).
 
 /////////////////////////////////
 //  LOOK RESPONSE
@@ -177,10 +147,10 @@ type("CLASS_SOLDIER").
 
         if (AimedAgentTeam == 200) {
     
-                .nth(6, AimedAgent, NewDestination);
-                ?debug(Mode); if (Mode<=1) { .println("NUEVO DESTINO DEBERIA SER: ", NewDestination); }
+            .nth(6, AimedAgent, NewDestination);
+            ?debug(Mode); if (Mode<=1) { .println("NUEVO DESTINO DEBERIA SER: ", NewDestination); }
           
-            }
+        }
  .
 
 /**
@@ -335,10 +305,6 @@ type("CLASS_SOLDIER").
 /////////////////////////////////
 //  ANSWER_ACTION_CFM_OR_CFA
 /////////////////////////////////
-
-     
-
-    
 +cfm_agree[source(M)]
    <- ?debug(Mode); if (Mode<=1) { .println("YOUR CODE FOR cfm_agree GOES HERE.")};
       -cfm_agree.  
@@ -355,8 +321,8 @@ type("CLASS_SOLDIER").
    <- ?debug(Mode); if (Mode<=1) { .println("YOUR CODE FOR cfa_refuse GOES HERE.")};
       -cfa_refuse.  
 
-
-+goto(X,Y,Z)[source(A)]
+// TODO: si order(help) nos vale, borrar esto
+/*+goto(X,Y,Z)[source(A)]
 <-
     .my_name(M);
     if (M == A) {
@@ -365,7 +331,7 @@ type("CLASS_SOLDIER").
     {
         !add_task(task(5000, "TASK_GOTO_POSITION", A, pos(X,Y,Z), ""));
     }
-.
+.*/
 
 /////////////////////////////////
 //  Initialize variables
