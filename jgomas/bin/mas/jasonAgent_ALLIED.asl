@@ -39,7 +39,8 @@ type("CLASS_SOLDIER").
 * 
 */  
 +!get_agent_to_aim
-    <-  ?debug(Mode); if (Mode<=2) { .println("Looking for agents to aim."); }
+    <-  
+    ?debug(Mode); if (Mode<=2) { .println("Looking for agents to aim."); }
     ?fovObjects(FOVObjects);
     .length(FOVObjects, Length);
 
