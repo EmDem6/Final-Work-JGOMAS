@@ -159,13 +159,23 @@ patrollingRadius(24).
         .nth(1, Object, Team);
         //200 == "AXIS" , 100 == "ALLIED"
         if (Team == 100){
-        	.println("SE tomar� una medida contra los enemigos");
+        	.println("SE tomara una medida contra los enemigos");
         	!shot(0);
+            .nth(6, Object, Pos);
+            !follow(Pos);
+        } else {
+            -+state(standing)
         }
        
 		-+bucle(X+1);	
 	}
 	*/.
+
++!follow(To) 
+    <- 
+    !add_task(3000, "TASK_GOTO_POSITION", M, To, "");
+    !shot(0);
+    .print("Estoy siguiendo a uno").
 
 /**
  * Action to do if this agent cannot shoot.
@@ -176,8 +186,16 @@ patrollingRadius(24).
  * <em> It's very useful to overload this plan. </em>
  *
  */
-+!perform_no_ammo_action .
++!perform_no_ammo_action 
 /// <- ?debug(Mode); if (Mode<=1) { .println("YOUR CODE FOR PERFORM_NO_AMMO_ACTION GOES HERE.") }.
+    <- 
+    ?my_position(X,Y,Z);
+    ?my_ammo(Ar);
+    .my_team("fieldops_AXIS", E1);
+
+    .concat("cfa(",X, ", ", Y, ", ", Z, ", ", Ar, ")", Content1);
+    .send_msg_with_conversation_id(E1, tell, Content1, "CFA").
+
 
 /**
  * Action to do when an agent is being shot.
@@ -190,11 +208,11 @@ patrollingRadius(24).
  */
 +!perform_injury_action 
 <-
- //?my_health(health);
- //if(health<75){
+ ?my_health(Health);
+ if(Health<75){
  !add_task(task(4000, "TASK_GIVE_MEDICPACKS", M, pos(X, Y, Z), ""));
  .println("me doy pack medico");
- //}
+ }
 .
 /////////////////////////////////
 //  SETUP PRIORITIES
@@ -206,8 +224,8 @@ patrollingRadius(24).
         +task_priority("TASK_GIVE_AMMOPAKS", 0);
         +task_priority("TASK_GIVE_BACKUP", 0);
         +task_priority("TASK_GET_OBJECTIVE",0);
-        +task_priority("TASK_ATTACK", 1000);
-        +task_priority("TASK_RUN_AWAY", 1500);
+        +task_priority("TASK_ATTACK", 1500);
+        +task_priority("TASK_RUN_AWAY", 1000);
         +task_priority("TASK_GOTO_POSITION", 2500);
         +task_priority("TASK_PATROLLING", 500);
         +task_priority("TASK_WALKING_PATH", 750).   
