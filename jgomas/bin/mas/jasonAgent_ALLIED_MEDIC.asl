@@ -47,14 +47,15 @@ type("CLASS_MEDIC").
 
     ?debug(Mode); if (Mode<=1) { .println("El numero de objetos es:", Length); }
 
+    /*
     if (objectivePackTaken(on))
     {
         .println("Flag taken! Sending help message to the my team!");
         +order(help);
         // TODO: se puede hacer? Preguntar German?
-        /*-+my_health_threshold(0);
-        -+my_ammo_threshold(0);*/
-    }
+        -+my_health_threshold(0);
+        -+my_ammo_threshold(0);
+    } */
 
     if (Length > 0) {
         +bucle(0);

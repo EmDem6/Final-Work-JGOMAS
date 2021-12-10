@@ -51,8 +51,8 @@ type("CLASS_SOLDIER").
         .println("Flag taken! Sending help message to the my team!");
         +order(help);
         // TODO: se puede hacer? Preguntar German?
-        /*-+my_health_threshold(0);
-        -+my_ammo_threshold(0);*/
+        -+my_health_threshold(90);
+        -+my_ammo_threshold(50);
     }
         
     if(Length > 0) {

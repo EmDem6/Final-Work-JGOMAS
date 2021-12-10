@@ -3,24 +3,24 @@ Duration: [3m:28s]
 
 Statistics for ALLIED TEAM
 	-GENERAL:
-		* Alive:       	7
-		* Avrg. Health:	64.42857
+		* Alive:       	5
+		* Avrg. Health:	54.8
 
 	-OBJECTIVE:
 		* Times Taken: 	1
 		* Times Lost:  	0
 
 	-SHOTS:
-		* EnemyHit:    	113
-		* TeamHit:     	1
-		* FailedHit:   	47
-		* TOTAL:       	161
+		* EnemyHit:    	79
+		* TeamHit:     	11
+		* FailedHit:   	51
+		* TOTAL:       	141
 
 	-MEDIC PACKS:
-		* Delivered:   	0
-		* Team Taken:  	0
-		* Enemy Taken: 	0
-		* Not Taken:   	0
+		* Delivered:   	28
+		* Team Taken:  	12
+		* Enemy Taken: 	9
+		* Not Taken:   	7
 
 	-AMMO PACKS:
 		* Delivered:   	0
@@ -29,51 +29,51 @@ Statistics for ALLIED TEAM
 		* Not Taken:   	0
 
 	-EFICIENCY:
-		* Medic:       	0.0
+		* Medic:       	0.75
 		* FieldOps:    	0.0
-		* Army:        	0.9875776397515528
+		* Army:        	0.9858156028368794
 
 	-ANTI-EFICIENCY:
-		* Medic:       	0.0
+		* Medic:       	0.32142857142857145
 		* FieldOps:    	0.0
-		* Army:        	7.0
+		* Army:        	0.45454545454545453
 
 
 Statistics for AXIS TEAM
 	-GENERAL:
 		* Alive:       	2
-		* Avrg. Health:	88.0
+		* Avrg. Health:	80.5
 
 	-OBJECTIVE:
 		* Times Taken: 	0
 		* Times Lost:  	1
 
 	-SHOTS:
-		* EnemyHit:    	137
-		* TeamHit:     	123
-		* FailedHit:   	25
-		* TOTAL:       	285
+		* EnemyHit:    	179
+		* TeamHit:     	147
+		* FailedHit:   	89
+		* TOTAL:       	415
 
 	-MEDIC PACKS:
-		* Delivered:   	8
-		* Team Taken:  	3
-		* Enemy Taken: 	2
-		* Not Taken:   	3
-
-	-AMMO PACKS:
-		* Delivered:   	4
+		* Delivered:   	0
 		* Team Taken:  	0
 		* Enemy Taken: 	0
-		* Not Taken:   	4
+		* Not Taken:   	0
+
+	-AMMO PACKS:
+		* Delivered:   	0
+		* Team Taken:  	0
+		* Enemy Taken: 	0
+		* Not Taken:   	0
 
 	-EFICIENCY:
-		* Medic:       	0.625
+		* Medic:       	0.0
 		* FieldOps:    	0.0
-		* Army:        	0.9754385964912281
+		* Army:        	0.9879518072289156
 
 	-ANTI-EFICIENCY:
-		* Medic:       	0.25
+		* Medic:       	0.0
 		* FieldOps:    	0.0
-		* Army:        	0.016260162601626018
+		* Army:        	0.013605442176870748
 
 
