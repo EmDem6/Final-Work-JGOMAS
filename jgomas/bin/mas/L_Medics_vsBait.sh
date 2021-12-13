@@ -1,5 +1,7 @@
-srcAxis="srcLucky"
-log="logs/log_vsLucky.txt"
+srcAxis="srcBait"
+log="logs/log_MedicsvsBait.txt"
 tipoAxis=$srcAxis"/jasonAgent_AXIS.asl"
-EQUIPOAxis="E1:es.upv.dsic.gti_ia.JasonJGomas.BasicTroopJasonArch($tipoAxis);E2:es.upv.dsic.gti_ia.JasonJGomas.BasicTroopJasonArch($tipoAxis);E3:es.upv.dsic.gti_ia.JasonJGomas.BasicTroopJasonArch($tipoAxis);E4:es.upv.dsic.gti_ia.JasonJGomas.BasicTroopJasonArch($tipoAxis);E5:es.upv.dsic.gti_ia.JasonJGomas.BasicTroopJasonArch($tipoAxis);E6:es.upv.dsic.gti_ia.JasonJGomas.BasicTroopJasonArch($tipoAxis);E7:es.upv.dsic.gti_ia.JasonJGomas.BasicTroopJasonArch($tipoAxis)"
+tipoAxis2=$srcAxis"/jasonAgent_AXIS_MEDIC.asl"
+tipoAxis3=$srcAxis"/jasonAgent_AXIS_FIELDOPS.asl"
+EQUIPOAxis="E1:es.upv.dsic.gti_ia.JasonJGomas.BasicTroopJasonArch($tipoAxis);E2:es.upv.dsic.gti_ia.JasonJGomas.BasicTroopJasonArch($tipoAxis);E3:es.upv.dsic.gti_ia.JasonJGomas.BasicTroopJasonArch($tipoAxis);E4:es.upv.dsic.gti_ia.JasonJGomas.BasicTroopJasonArch($tipoAxis2);E5:es.upv.dsic.gti_ia.JasonJGomas.BasicTroopJasonArch($tipoAxis2);E6:es.upv.dsic.gti_ia.JasonJGomas.BasicTroopJasonArch($tipoAxis3);E7:es.upv.dsic.gti_ia.JasonJGomas.BasicTroopJasonArch($tipoAxis3)"
 java -classpath "lib/jade.jar:lib/jadeTools.jar:lib/Base64.jar:lib/http.jar:lib/iiop.jar:lib/beangenerator.jar:lib/jgomas.jar:lib/jason.jar:lib/JasonJGomas.jar:classes:." jade.Boot -container -local-host 127.0.0.1 $EQUIPOAxis";A1:es.upv.dsic.gti_ia.JasonJGomas.BasicTroopJasonArch(jasonAgent_ALLIED_MEDIC.asl);A2:es.upv.dsic.gti_ia.JasonJGomas.BasicTroopJasonArch(jasonAgent_ALLIED_MEDIC.asl);A3:es.upv.dsic.gti_ia.JasonJGomas.BasicTroopJasonArch(jasonAgent_ALLIED_MEDIC.asl);A4:es.upv.dsic.gti_ia.JasonJGomas.BasicTroopJasonArch(jasonAgent_ALLIED_MEDIC.asl);A5:es.upv.dsic.gti_ia.JasonJGomas.BasicTroopJasonArch(jasonAgent_ALLIED_MEDIC.asl);A6:es.upv.dsic.gti_ia.JasonJGomas.BasicTroopJasonArch(jasonAgent_ALLIED_MEDIC.asl);A7:es.upv.dsic.gti_ia.JasonJGomas.BasicTroopJasonArch(jasonAgent_ALLIED_MEDIC.asl);" > $log

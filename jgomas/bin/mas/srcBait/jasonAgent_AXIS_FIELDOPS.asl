@@ -4,16 +4,17 @@ debug(3).
 manager("Manager").
 
 // Team of troop.
-team("ALLIED").
+team("AXIS").
 // Type of troop.
-type("CLASS_MEDIC").
+type("CLASS_FIELDOPS").
+
+// Value of "closeness" to the Flag, when patrolling in defense
+patrollingRadius(32).
 
 
 
 
 { include("jgomas.asl") }
-
-
 
 
 // Plans
@@ -37,32 +38,19 @@ type("CLASS_MEDIC").
  * enemy found. Otherwise, the return value is aimed("false")
  *
  * <em> It's very useful to overload this plan. </em>
- * 
+ *
  */
+
 +!get_agent_to_aim
-    <-  
-    ?debug(Mode); if (Mode<=2) { .println("Looking for agents to aim."); }
+    <-  ?debug(Mode); if (Mode<=2) { .println("Looking for agents to aim."); }
     ?fovObjects(FOVObjects);
     .length(FOVObjects, Length);
 
     ?debug(Mode); if (Mode<=1) { .println("El numero de objetos es:", Length); }
 
-    if (objectivePackTaken(on))
-    {
-        if (returnHome(RH) & (RH == 0)) {
-			!add_task(task(5000, "TASK_GOTO_POSITION", M, pos(155, 0, 133), ""));
-			-+task_priority("TASK_GIVE_MEDICPAKS", 0);
-			-+returnHome(1);
-		}
-        .println("Flag taken! Sending help message to the my team!");
-        +order(help);
-    } else {
-        create_medic_pack;
-    }
-
     if (Length > 0) {
         +bucle(0);
-            
+        
         -+aimed("false");
         
         while (not no_shoot("true") & bucle(X) & (X < Length)) {
@@ -83,24 +71,25 @@ type("CLASS_MEDIC").
                 .nth(1, Object, Team);
                 ?my_formattedTeam(MyTeam);
                 
-                if (Team == 200) {  // Only if I'm ALLIED
+                if (Team == 100) {  // Only if I'm AXIS
                     
                     ?debug(Mode); if (Mode<=2) { .println("Aiming an enemy. . .", MyTeam, " ", .number(MyTeam) , " ", Team, " ", .number(Team)); }
                     +aimed_agent(Object);
                     -+aimed("true");
                     
                 }  else {
-                    if (Team == 100) {
+                    if (Team == 200) {
                         .nth(3, Object, Angle);
                         if (math.abs(Angle) < 0.1) {
                             +no_shoot("true");
-                            .println("ALLIES in front, not aiming!");
                         } 
                     }
                 }
                 
             }
+            
             -+bucle(X+1);
+            
         }
 
         if (no_shoot("true")) {
@@ -108,10 +97,13 @@ type("CLASS_MEDIC").
             -+aimed("false");
             -no_shoot("true");
         }
+        
+        
     }
 
     -bucle(_).
 
+        
 
 /////////////////////////////////
 //  LOOK RESPONSE
@@ -132,83 +124,93 @@ type("CLASS_MEDIC").
 //  PERFORM ACTIONS
 /////////////////////////////////
 /**
-* Action to do when agent has an enemy at sight.
-* 
-* This plan is called when agent has looked and has found an enemy,
-* calculating (in agreement to the enemy position) the new direction where
-* is aiming.
-*
-*  It's very useful to overload this plan.
-* 
-*/
+ * Action to do when agent has an enemy at sight.
+ *
+ * This plan is called when agent has looked and has found an enemy,
+ * calculating (in agreement to the enemy position) the new direction where
+ * is aiming.
+ *
+ *  It's very useful to overload this plan.
+ *
+ */
 +!perform_aim_action
     <-  // Aimed agents have the following format:
         // [#, TEAM, TYPE, ANGLE, DISTANCE, HEALTH, POSITION ]
         ?aimed_agent(AimedAgent);
         ?debug(Mode); if (Mode<=1) { .println("AimedAgent ", AimedAgent); }
         .nth(1, AimedAgent, AimedAgentTeam);
-        ?debug(Mode); if (Mode<=2) { .println("BAJO EL PUNTO DE MIRA TENGO A ALGUIEN DEL EQUIPO ", AimedAgentTeam);             }
+        ?debug(Mode); if (Mode<=2) { .println("BAJO EL PUNTO DE MIRA TENGO A ALGUIEN DEL EQUIPO ", AimedAgentTeam); }
         ?my_formattedTeam(MyTeam);
 
 
-        if (AimedAgentTeam == 200) {
-    
-                .nth(6, AimedAgent, NewDestination);
-                ?debug(Mode); if (Mode<=1) { .println("NUEVO DESTINO DEBERIA SER: ", NewDestination); }
-          
-            }
- .
-
-/**
-* Action to do when the agent is looking at.
-*
-* This plan is called just after Look method has ended.
-* 
-* <em> It's very useful to overload this plan. </em>
-* 
-*/
-+!perform_look_action .
-   /// <- ?debug(Mode); if (Mode<=1) { .println("YOUR CODE FOR PERFORM_LOOK_ACTION GOES HERE.") }. 
-
-/**
-* Action to do if this agent cannot shoot.
-* 
-* This plan is called when the agent try to shoot, but has no ammo. The
-* agent will spit enemies out. :-)
-* 
-* <em> It's very useful to overload this plan. </em>
-* 
-*/  
-+!perform_no_ammo_action . 
-   /// <- ?debug(Mode); if (Mode<=1) { .println("YOUR CODE FOR PERFORM_NO_AMMO_ACTION GOES HERE.") }.
-    
-/**
-     * Action to do when an agent is being shot.
-     * 
-     * This plan is called every time this agent receives a messager from
-     * agent Manager informing it is being shot.
-     * 
-     * <em> It's very useful to overload this plan. </em>
-     * 
-     */
-+!perform_injury_action .
-    ///<- ?debug(Mode); if (Mode<=1) { .println("YOUR CODE FOR PERFORM_INJURY_ACTION GOES HERE.") }. 
+        if (AimedAgentTeam == 100) {
         
+            .nth(6, AimedAgent, NewDestination);
+            ?debug(Mode); if (Mode<=1) { .println("NUEVO DESTINO MARCADO: ", NewDestination); }
+            //update_destination(NewDestination);
+        }
+        .
+    
+/**
+ * Action to do when the agent is looking at.
+ *
+ * This plan is called just after Look method has ended.
+ *
+ * <em> It's very useful to overload this plan. </em>
+ *
+ */
++!perform_look_action 
+    <-  ?fovObjects(FOVObjects);
+        for(.member(CurrentObject, FOVObjects)) {
+            .nth(1, CurrentObject, ObjectTeam);
+            .nth(6, CurrentObject, pos(ObjectX, ObjectY, ObjectZ));
+            if (ObjectTeam == 100) {
+                .my_team("fieldops_AXIS", MyTeam);
+                .concat("enemy(", ObjectX, ", ", ObjectY, ", ", ObjectZ, ")", MsgContent);
+                .send_msg_with_conversation_id(MyTeam, tell, MsgContent, "INT");
+            }
+        }.
+
+/**
+ * Action to do if this agent cannot shoot.
+ *
+ * This plan is called when the agent try to shoot, but has no ammo. The
+ * agent will spit enemies out. :-)
+ *
+ * <em> It's very useful to overload this plan. </em>
+ *
+ */
++!perform_no_ammo_action .
+/// <- ?debug(Mode); if (Mode<=1) { .println("YOUR CODE FOR PERFORM_NO_AMMO_ACTION GOES HERE.") }.
+
+/**
+ * Action to do when an agent is being shot.
+ *
+ * This plan is called every time this agent receives a messager from
+ * agent Manager informing it is being shot.
+ *
+ * <em> It's very useful to overload this plan. </em>
+ *
+ */
++!perform_injury_action .
+///<- ?debug(Mode); if (Mode<=1) { .println("YOUR CODE FOR PERFORM_INJURY_ACTION GOES HERE.") }.
+
 
 /////////////////////////////////
 //  SETUP PRIORITIES
 /////////////////////////////////
-/**  You can change initial priorities if you want to change the behaviour of each agent  **/+!setup_priorities
+/**  You can change initial priorities if you want to change the behaviour of each agent  **/
++!setup_priorities
     <-  +task_priority("TASK_NONE",0);
         +task_priority("TASK_GIVE_MEDICPAKS", 0);
-        +task_priority("TASK_GIVE_AMMOPAKS", 0);
+        +task_priority("TASK_GIVE_AMMOPAKS", 2000);
         +task_priority("TASK_GIVE_BACKUP", 0);
-        +task_priority("TASK_GET_OBJECTIVE",4000);
+        +task_priority("TASK_GET_OBJECTIVE",1000);
         +task_priority("TASK_ATTACK", 1000);
         +task_priority("TASK_RUN_AWAY", 1500);
         +task_priority("TASK_GOTO_POSITION", 750);
         +task_priority("TASK_PATROLLING", 500);
-        +task_priority("TASK_WALKING_PATH", 1750).   
+        +task_priority("TASK_WALKING_PATH", 750).   
 
 
 
@@ -224,9 +226,8 @@ type("CLASS_MEDIC").
  * <em> It's very useful to overload this plan. </em>
  *
  */
-+!update_targets
++!update_targets 
 	<-	?debug(Mode); if (Mode<=1) { .println("YOUR CODE FOR UPDATE_TARGETS GOES HERE.") }.
-	
 	
 	
 /////////////////////////////////
@@ -240,11 +241,11 @@ type("CLASS_MEDIC").
  * <em> It's very useful to overload this plan. </em>
  *
  */
- +!checkMedicAction
-     <-  -+medicAction(on).
-      // go to help
-      
-      
++!checkMedicAction
+<-  -+medicAction(on).
+// go to help
+
+
 /////////////////////////////////
 //  CHECK FIELDOPS ACTION (ONLY FIELDOPS)
 /////////////////////////////////
@@ -256,9 +257,10 @@ type("CLASS_MEDIC").
  * <em> It's very useful to overload this plan. </em>
  *
  */
- +!checkAmmoAction
-     <-  -+fieldopsAction(on).
-      //  go to help
++!checkAmmoAction
+<-  -+fieldopsAction(on).
+//  go to help
+
 
 
 
@@ -284,7 +286,7 @@ type("CLASS_MEDIC").
        if (Ar <= At) { 
           ?my_position(X, Y, Z);
           
-         .my_team("fieldops_ALLIED", E1);
+         .my_team("fieldops_AXIS", E1);
          //.println("Mi equipo intendencia: ", E1 );
          .concat("cfa(",X, ", ", Y, ", ", Z, ", ", Ar, ")", Content1);
          .send_msg_with_conversation_id(E1, tell, Content1, "CFA");
@@ -295,17 +297,17 @@ type("CLASS_MEDIC").
        ?my_health_threshold(Ht);
        ?my_health(Hr);
        
-       if (Hr <= Ht) {  
+       if (Hr <= Ht) { 
           ?my_position(X, Y, Z);
           
-         .my_team("medic_ALLIED", E2);
+         .my_team("medic_AXIS", E2);
          //.println("Mi equipo medico: ", E2 );
          .concat("cfm(",X, ", ", Y, ", ", Z, ", ", Hr, ")", Content2);
          .send_msg_with_conversation_id(E2, tell, Content2, "CFM");
 
        }
        .
-       
+
 /////////////////////////////////
 //  ANSWER_ACTION_CFM_OR_CFA
 /////////////////////////////////
@@ -328,6 +330,11 @@ type("CLASS_MEDIC").
    <- ?debug(Mode); if (Mode<=1) { .println("YOUR CODE FOR cfa_refuse GOES HERE.")};
       -cfa_refuse.  
 
++enemy(X, Y, Z)[source(M)]
+    <-  .my_name(MName);
+        !add_task(task("TASK_GOTO_POSITION", MName, pos(X, Y, Z), ""));
+        -+state(standing);
+        -enemy(X, Y, Z)[source(M)].
 
 /////////////////////////////////
 //  Initialize variables
@@ -335,3 +342,4 @@ type("CLASS_MEDIC").
 
 +!init
    <- ?debug(Mode); if (Mode<=1) { .println("YOUR CODE FOR init GOES HERE.")}.  
+
