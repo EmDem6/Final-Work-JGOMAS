@@ -1,4 +1,4 @@
-debug(3).
+debug(4).
 
 // Name of the manager
 manager("Manager").
@@ -197,7 +197,7 @@ patrollingRadius(24).
 +!perform_no_ammo_action 
 <-
 	!add_task(task(8000, "TASK_GIVE_AMMOPACKS", M, pos(X, Y, Z), ""));
-    println("me doy pack de ammo");
+    //println("me doy pack de ammo");
 .
 /**
  * Action to do when an agent is being shot.
@@ -308,7 +308,7 @@ patrollingRadius(24).
          .my_team("fieldops_AXIS", E1);
          //.println("Mi equipo intendencia: ", E1 );
          !add_task(task(4000, "TASK_GIVE_AMMOPACKS", M, pos(X, Y, Z), ""));
-         println("me doy pack de ammo");
+         //println("me doy pack de ammo");
          .concat("cfa(",X, ", ", Y, ", ", Z, ", ", Ar, ")", Content1);
          .send_msg_with_conversation_id(E1, tell, Content1, "CFA");
        

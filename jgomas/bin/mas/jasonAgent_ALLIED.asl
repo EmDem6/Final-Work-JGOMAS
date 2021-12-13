@@ -1,4 +1,4 @@
-debug(3).
+debug(4).
 
 // Name of the manager
 manager("Manager").
@@ -274,10 +274,12 @@ if (Length > 0) {
        ?my_health(Hr);
        
        if (Hr <= Ht) { 
-          ?my_position(X, Y, Z);
+        ?debug(Mode); if (Mode<=4) { .println("Hr <= Ht. TENGO QUE LLAMAR MEDICO") }
+        ?my_position(X, Y, Z);
           
          .my_team("medic_ALLIED", E2);
-         //.println("Mi equipo medico: ", E2 );
+        .concat("teammateMessageIncoming(",E2,")", Content3);
+        .send_msg_with_conversation_id(E2, tell, Content3, "TME");
          .concat("cfm(",X, ", ", Y, ", ", Z, ", ", Hr, ")", Content2);
          .send_msg_with_conversation_id(E2, tell, Content2, "CFM");
 

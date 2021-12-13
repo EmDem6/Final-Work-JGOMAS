@@ -1,4 +1,4 @@
-debug(3).
+debug(4).
 
 // Name of the manager
 manager("Manager").
@@ -53,10 +53,10 @@ patrollingRadius(24).
         
         ?debug(Mode); if (Mode<=1) { .println("El numero de objetos es:", Length); }
         
-        .my_team("ALLIED", E1);
+        /*.my_team("ALLIED", E1);
         .concat("cfm(",0, ", ", 0, ", ", 0, ", ", 15, ")", Content1);
         .send_msg_with_conversation_id(E1, tell, Content1, "INT");
-
+*/
         if (Length > 0) {
 		    +bucle(0);
     

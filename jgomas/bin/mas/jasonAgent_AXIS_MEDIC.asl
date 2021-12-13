@@ -1,4 +1,4 @@
-debug(3).
+debug(4).
 
 // Name of the manager
 manager("Manager").
@@ -193,7 +193,7 @@ patrollingRadius(24).
  //?my_health(health);
  //if(health<75){
  !add_task(task(4000, "TASK_GIVE_MEDICPACKS", M, pos(X, Y, Z), ""));
- .println("me doy pack medico");
+ //.println("me doy pack medico");
  //}
 .
 /////////////////////////////////
@@ -303,7 +303,7 @@ patrollingRadius(24).
          .my_team("medic_AXIS", E2);
          //.println("Mi equipo medico: ", E2 );
          !add_task(task(4000, "TASK_GIVE_MEDICPACKS", M, pos(X, Y, Z), ""));
-         .println("me doy pack medico");
+         //.println("me doy pack medico");
          .concat("cfm(",X, ", ", Y, ", ", Z, ", ", Hr, ")", Content2);
          .send_msg_with_conversation_id(E2, tell, Content2, "CFM");
 

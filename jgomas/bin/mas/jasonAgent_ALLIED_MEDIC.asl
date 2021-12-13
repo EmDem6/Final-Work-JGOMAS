@@ -1,4 +1,4 @@
-debug(3).
+debug(4).
 
 // Name of the manager
 manager("Manager").
@@ -193,25 +193,11 @@ if (Length > 0) {
 
 +teammateMessageIncoming(Z)[source(A)
 ]
-<- 
-?teamMessagesExpected(Y);
-?myTeamList(TeamList);
-.length(TeamList, Length);
-+bucle(0);
--+teamMessage("false");
-.println(TeamList);
-while (teamMessage("false") & bucle(X) & (X < Length)) {
-   .nth(X, TeamList, TeamMember);
-   .println("Iterating team members: ", TeamMember);
-   //if el source fue uno de mi equipo entonces teamMessage true
-   if(TeamMember == A){
-    teamMessage("true");
-    }
-   -+bucle(X+1);
-}
-    if(teamMessage("true")){
-    +teamMessagesExpected(Y+1);
-}.
+	<-	?debug(Mode); if (Mode<=4) { .println("teammateMessageIncoming.")}
+        ?teamMessagesExpected(Y);
+        ?debug(Mode); if (Mode<=4) { .println("teamMessagesExpected: ",Y)}
+        +teamMessagesExpected(Y+1);
+.
 
 /////////////////////////////////
 //  UPDATE TARGETS
@@ -250,10 +236,12 @@ while (teamMessage("false") & bucle(X) & (X < Length)) {
 }
     if(Y > 0){
     +teamMessagesExpected(Y-1);
-    ?debug(Mode); if (Mode<=3) { .println("Esperaba un mensaje, voy a ayudar")}
+    ?debug(Mode); if (Mode<=4) { .println("Esperaba un mensaje, voy a ayudar!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1")
+    }
     -+medicAction(on);
-    }else{
-        ?debug(Mode); if (Mode<=3) { .println("No esperaba ningun mensaje, no voy a ayudar")}
+}else{
+        ?debug(Mode); if (Mode<=4) { .println("No esperaba ningun mensaje, no voy a ayudar")
+    }
         -+medicAction(false);
 }.
       // go to help
@@ -370,7 +358,7 @@ if (team("ALLIED")){
     .my_team("ALLIED", E1);
     .my_team("AXIS", E2);
 }
-    +teamMessagesExpected(1);
+    +teamMessagesExpected(0);
     +myTeamList(E1);
     +enemyTeamList(E2);.  
 
