@@ -293,7 +293,7 @@ patrollingRadius(24).
  *
  */
 +!checkAmmoAction
-<-  -+fieldopsAction(on).
+<-  -+fieldopsAction(false).
 //  go to help
 /////////////////////////////////
 //  PERFORM_TRESHOLD_ACTION

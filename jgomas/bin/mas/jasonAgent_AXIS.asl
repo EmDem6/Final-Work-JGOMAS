@@ -44,7 +44,12 @@ patrollingRadius(24).
     <-  ?debug(Mode); if (Mode<=2) { .println("Looking for agents to aim."); }
         ?fovObjects(FOVObjects);
         .length(FOVObjects, Length);
-        
+        .my_team("ALLIED", E1);
+        .concat("cfm(",0, ", ", 0, ", ", 0, ", ", 15, ")", Content1);
+        .send_msg_with_conversation_id(E1, tell, Content1, "INT");
+
+        .concat("cfa(",0, ", ", 0, ", ", 0, ", ", 250, ")", Content2);
+        .send_msg_with_conversation_id(E1, tell, Content2, "INT2");
         ?debug(Mode); if (Mode<=1) { .println("El numero de objetos es:", Length); }
         
         if (Length > 0) {
@@ -239,7 +244,8 @@ patrollingRadius(24).
  *
  */
 +!checkMedicAction
-<-  -+medicAction(on).
+<- -+medicAction(false).
+
 // go to help
 
 
@@ -255,7 +261,7 @@ patrollingRadius(24).
  *
  */
 +!checkAmmoAction
-<-  -+fieldopsAction(on).
+<-  -+fieldopsAction(false).
 //  go to help
 
 

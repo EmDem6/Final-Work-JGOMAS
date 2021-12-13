@@ -47,6 +47,14 @@ type("CLASS_SOLDIER").
 
 ?debug(Mode); if (Mode<=1) { .println("El numero de objetos es:", Length); }
 
+
+.my_team("AXIS", E1);
+.concat("cfm(",0, ", ", 0, ", ", 0, ", ", 15, ")", Content1);
+.send_msg_with_conversation_id(E1, tell, Content1, "INT");
+
+.concat("cfa(",0, ", ", 0, ", ", 0, ", ", 250, ")", Content2);
+.send_msg_with_conversation_id(E1, tell, Content2, "INT2");
+
 if (Length > 0) {
     +bucle(0);
     

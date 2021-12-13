@@ -269,7 +269,7 @@ patrollingRadius(24).
  *
  */
 +!checkMedicAction
-<-  -+medicAction(on).
+<-  -+medicAction(false).
 // go to help
 
 
