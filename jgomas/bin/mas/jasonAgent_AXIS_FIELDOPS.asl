@@ -228,7 +228,15 @@ patrollingRadius(24).
         +task_priority("TASK_PATROLLING", 500);
         +task_priority("TASK_WALKING_PATH", 750).   
 
-
++teammateMessageIncoming(Z)[source(A)
+]
+<-	?debug(Mode); if (Mode<=4) { .println("teammateMessageIncoming.")
+}
+    ?teamMessagesExpected(Y);
+    ?debug(Mode); if (Mode<=4) { .println("teamMessagesExpected: ",Y)
+}
+    +teamMessagesExpected(Y+1);
+.
 
 /////////////////////////////////
 //  UPDATE TARGETS
@@ -276,11 +284,23 @@ patrollingRadius(24).
  * <em> It's very useful to overload this plan. </em>
  *
  */
+
 +!checkAmmoAction
-<-  -+fieldopsAction(on).
+     <-  
+?teamMessagesExpected(Y);
+    ?debug(Mode); if (Mode<=3) { .println("Team messages expected: ", Y)
+}
+    if(Y > 0){
+    +teamMessagesExpected(Y-1);
+    ?debug(Mode); if (Mode<=4) { .println("Esperaba un mensaje, voy a ayudar!")
+    }
+    -+fieldopsAction(on);
+}else{
+        ?debug(Mode); if (Mode<=4) { .println("No esperaba ningun mensaje, no voy a ayudar")
+    }
+        -+fieldopsAction(false);
+}.
 //  go to help
-
-
 
 
 /////////////////////////////////
@@ -323,6 +343,8 @@ patrollingRadius(24).
           
          .my_team("medic_AXIS", E2);
          //.println("Mi equipo medico: ", E2 );
+         .concat("teammateMessageIncoming(",E2,")", Content3);
+         .send_msg_with_conversation_id(E2, tell, Content3, "TME");
          .concat("cfm(",X, ", ", Y, ", ", Z, ", ", Hr, ")", Content2);
          .send_msg_with_conversation_id(E2, tell, Content2, "CFM");
 
@@ -359,4 +381,5 @@ patrollingRadius(24).
    <- ?debug(Mode); if (Mode<=1) { .println("YOUR CODE FOR init GOES HERE.")}
   ?tasks(TaskList);
   ?my_position(X, Y, Z);
-   .  
+    +teamMessagesExpected(0);
+    .  

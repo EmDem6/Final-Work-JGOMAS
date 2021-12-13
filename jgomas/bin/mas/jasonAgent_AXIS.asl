@@ -284,6 +284,8 @@ patrollingRadius(24).
           
          .my_team("fieldops_AXIS", E1);
          //.println("Mi equipo intendencia: ", E1 );
+         .concat("teammateMessageIncoming(",E1,")", Content3);
+         .send_msg_with_conversation_id(E1, tell, Content3, "TME");
          .concat("cfa(",X, ", ", Y, ", ", Z, ", ", Ar, ")", Content1);
          .send_msg_with_conversation_id(E1, tell, Content1, "CFA");
        
@@ -298,6 +300,8 @@ patrollingRadius(24).
           
          .my_team("medic_AXIS", E2);
          //.println("Mi equipo medico: ", E2 );
+         .concat("teammateMessageIncoming(",E2,")", Content4);
+         .send_msg_with_conversation_id(E2, tell, Content4, "TME");
          .concat("cfm(",X, ", ", Y, ", ", Z, ", ", Hr, ")", Content2);
          .send_msg_with_conversation_id(E2, tell, Content2, "CFM");
 

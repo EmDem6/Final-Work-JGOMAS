@@ -1,4 +1,4 @@
-debug(3).
+debug(4).
 
 // Name of the manager
 manager("Manager").
@@ -14,18 +14,14 @@ patrollingRadius(24).
 
 
 
-{ include("jgomas.asl") }
-
-
+{ include("jgomas.asl")
+}
 // Plans
-
-
 /*******************************
 *
 * Actions definitions
 *
 *******************************/
-
 /////////////////////////////////
 //  GET AGENT TO AIM 
 /////////////////////////////////  
@@ -41,11 +37,13 @@ patrollingRadius(24).
  *
  */
 +!get_agent_to_aim
-    <-  ?debug(Mode); if (Mode<=2) { .println("Looking for agents to aim."); }
+    <-  ?debug(Mode); if (Mode<=2) { .println("Looking for agents to aim.");
+}
         ?fovObjects(FOVObjects);
         .length(FOVObjects, Length);
         
-        ?debug(Mode); if (Mode<=1) { .println("El numero de objetos es:", Length); }
+        ?debug(Mode); if (Mode<=1) { .println("El numero de objetos es:", Length);
+}
         
         if (Length > 0) {
 		    +bucle(0);
@@ -53,40 +51,41 @@ patrollingRadius(24).
             -+aimed("false");
     
             while (aimed("false") & bucle(X) & (X < Length)) {
-  
-                //.println("En el bucle, y X vale:", X);
+        //.println("En el bucle, y X vale:", X);
                 
                 .nth(X, FOVObjects, Object);
                 // Object structure 
-                // [#, TEAM, TYPE, ANGLE, DISTANCE, HEALTH, POSITION ]
+        // [#, TEAM, TYPE, ANGLE, DISTANCE, HEALTH, POSITION ]
                 .nth(2, Object, Type);
                 
-                ?debug(Mode); if (Mode<=2) { .println("Objeto Analizado: ", Object); }
+                ?debug(Mode); if (Mode<=2) { .println("Objeto Analizado: ", Object);
+        }
                 
                 if (Type > 1000) {
-                    ?debug(Mode); if (Mode<=2) { .println("I found some object."); }
-                } else {
-                    // Object may be an enemy
+                    ?debug(Mode); if (Mode<=2) { .println("I found some object.");
+            }
+        } else {
+            // Object may be an enemy
                     .nth(1, Object, Team);
                     ?my_formattedTeam(MyTeam);
           
-                    if (Team == 100) {  // Only if I'm AXIS
+                    if (Team == 100) { // Only if I'm AXIS
 				
- 					    ?debug(Mode); if (Mode<=2) { .println("Aiming an enemy. . .", MyTeam, " ", .number(MyTeam) , " ", Team, " ", .number(Team)); }
+ 					    ?debug(Mode); if (Mode<=2) { .println("Aiming an enemy. . .", MyTeam,
+                    " ", .number(MyTeam) ,
+                    " ", Team,
+                    " ", .number(Team));
+                }
 					    +aimed_agent(Object);
                         -+aimed("true");
                         !perform_aim_action;
                         .println("hace el seguimiento de bandera");
-
-                    }
-                    
-                }
+            }
+        }
              
                 -+bucle(X+1);
-                
-            }
-                     
-        }
+    }
+}
 
      -bucle(_).
 
@@ -95,13 +94,15 @@ patrollingRadius(24).
 /////////////////////////////////
 //  LOOK RESPONSE
 /////////////////////////////////
-+look_response(FOVObjects)[source(M)]
-    <-  //-waiting_look_response;
++look_response(FOVObjects)[source(M)
+]
+    <- //-waiting_look_response;
         .length(FOVObjects, Length);
         if (Length > 0) {
-            ///?debug(Mode); if (Mode<=1) { .println("HAY ", Length, " OBJETOS A MI ALREDEDOR:\n", FOVObjects); }
-        };    
-        -look_response(_)[source(M)];
+    ///?debug(Mode); if (Mode<=1) { .println("HAY ", Length, " OBJETOS A MI ALREDEDOR:\n", FOVObjects); }
+};    
+        -look_response(_)[source(M)
+];
         -+fovObjects(FOVObjects);
         //.//;
         !look.
@@ -121,7 +122,7 @@ patrollingRadius(24).
  *
  */
   +!perform_aim_action
-    <-  // Aimed agents have the following format:
+    <- // Aimed agents have the following format:
         // [#, TEAM, TYPE, ANGLE, DISTANCE, HEALTH, POSITION ]
         +pr(3000);
         ?aimed_agent(AimedAgent);
@@ -131,11 +132,14 @@ patrollingRadius(24).
         if (AimedAgentTeam == 100 | AimedAgentTeam == 1003) {        
             .nth(6, AimedAgent, NewDestination);
             ?pr(P);
-			!add_task(task(P, "TASK_GOTO_POSITION", "Manager", NewDestination, ""));
+			!add_task(task(P,
+    "TASK_GOTO_POSITION",
+    "Manager", NewDestination,
+    ""));
 			.print("persiguiendo a alguien");
 			-+state(standing);            			
-            -+pr(P+1);	
-        }
+            -+pr(P+1);
+}
         .  
     
 /**
@@ -178,7 +182,6 @@ patrollingRadius(24).
  */
 +!perform_no_ammo_action .
 /// <- ?debug(Mode); if (Mode<=1) { .println("YOUR CODE FOR PERFORM_NO_AMMO_ACTION GOES HERE.") }.
-
 /**
  * Action to do when an agent is being shot.
  *
@@ -191,29 +194,49 @@ patrollingRadius(24).
 +!perform_injury_action 
 <-
  //?my_health(health);
- //if(health<75){
- !add_task(task(4000, "TASK_GIVE_MEDICPACKS", M, pos(X, Y, Z), ""));
- .println("me doy pack medico");
- //}
+//if(health<75){
+ !add_task(task(4000,
+"TASK_GIVE_MEDICPACKS", M, pos(X, Y, Z),
+""));
+ //.println("me doy pack medico");
+//}
 .
 /////////////////////////////////
 //  SETUP PRIORITIES
 /////////////////////////////////
 /**  You can change initial priorities if you want to change the behaviour of each agent  **/
 +!setup_priorities
-    <-  +task_priority("TASK_NONE",0);
-        +task_priority("TASK_GIVE_MEDICPAKS", 2000);
-        +task_priority("TASK_GIVE_AMMOPAKS", 0);
-        +task_priority("TASK_GIVE_BACKUP", 0);
-        +task_priority("TASK_GET_OBJECTIVE",0);
-        +task_priority("TASK_ATTACK", 1000);
-        +task_priority("TASK_RUN_AWAY", 1500);
-        +task_priority("TASK_GOTO_POSITION", 2500);
-        +task_priority("TASK_PATROLLING", 500);
-        +task_priority("TASK_WALKING_PATH", 750).   
+    <-  +task_priority("TASK_NONE",
+0);
+        +task_priority("TASK_GIVE_MEDICPAKS",
+2000);
+        +task_priority("TASK_GIVE_AMMOPAKS",
+0);
+        +task_priority("TASK_GIVE_BACKUP",
+0);
+        +task_priority("TASK_GET_OBJECTIVE",
+0);
+        +task_priority("TASK_ATTACK",
+1000);
+        +task_priority("TASK_RUN_AWAY",
+1500);
+        +task_priority("TASK_GOTO_POSITION",
+2500);
+        +task_priority("TASK_PATROLLING",
+500);
+        +task_priority("TASK_WALKING_PATH",
+750).   
 
 
-
++teammateMessageIncoming(Z)[source(A)
+]
+<-	?debug(Mode); if (Mode<=4) { .println("teammateMessageIncoming.")
+}
+    ?teamMessagesExpected(Y);
+    ?debug(Mode); if (Mode<=4) { .println("teamMessagesExpected: ",Y)
+}
+    +teamMessagesExpected(Y+1);
+.
 /////////////////////////////////
 //  UPDATE TARGETS
 /////////////////////////////////
@@ -227,7 +250,8 @@ patrollingRadius(24).
  *
  */
 +!update_targets 
-	<-	?debug(Mode); if (Mode<=1) { .println("YOUR CODE FOR UPDATE_TARGETS GOES HERE.") }.
+	<-	?debug(Mode); if (Mode<=1) { .println("YOUR CODE FOR UPDATE_TARGETS GOES HERE.")
+}.
 	
 	
 /////////////////////////////////
@@ -241,11 +265,22 @@ patrollingRadius(24).
  * <em> It's very useful to overload this plan. </em>
  *
  */
-+!checkMedicAction
-<-  -+medicAction(on).
+ +!checkMedicAction
+     <-  
+?teamMessagesExpected(Y);
+    ?debug(Mode); if (Mode<=3) { .println("Team messages expected: ", Y)
+}
+    if(Y > 0){
+    +teamMessagesExpected(Y-1);
+    ?debug(Mode); if (Mode<=4) { .println("Esperaba un mensaje, voy a ayudar")
+    }
+    -+medicAction(on);
+}else{
+        ?debug(Mode); if (Mode<=4) { .println("No esperaba ningun mensaje, no voy a ayudar")
+    }
+        -+medicAction(false);
+}.
 // go to help
-
-
 /////////////////////////////////
 //  CHECK FIELDOPS ACTION (ONLY FIELDOPS)
 /////////////////////////////////
@@ -260,10 +295,6 @@ patrollingRadius(24).
 +!checkAmmoAction
 <-  -+fieldopsAction(on).
 //  go to help
-
-
-
-
 /////////////////////////////////
 //  PERFORM_TRESHOLD_ACTION
 /////////////////////////////////
@@ -278,7 +309,8 @@ patrollingRadius(24).
 +!performThresholdAction
        <-
        
-       ?debug(Mode); if (Mode<=1) { .println("YOUR CODE FOR PERFORM_TRESHOLD_ACTION GOES HERE.") }
+       ?debug(Mode); if (Mode<=1) { .println("YOUR CODE FOR PERFORM_TRESHOLD_ACTION GOES HERE.")
+}
        
        ?my_ammo_threshold(At);
        ?my_ammo(Ar);
@@ -288,11 +320,16 @@ patrollingRadius(24).
           
          .my_team("fieldops_AXIS", E1);
          //.println("Mi equipo intendencia: ", E1 );
-         .concat("cfa(",X, ", ", Y, ", ", Z, ", ", Ar, ")", Content1);
-         .send_msg_with_conversation_id(E1, tell, Content1, "CFA");
-       
-       
-       }
+         .concat("teammateMessageIncoming(",E1,")", Content3);
+         .send_msg_with_conversation_id(E1, tell, Content3, "TME");
+         .concat("cfa(",X,
+    ", ", Y,
+    ", ", Z,
+    ", ", Ar,
+    ")", Content1);
+         .send_msg_with_conversation_id(E1, tell, Content1,
+    "CFA");
+}
        
        ?my_health_threshold(Ht);
        ?my_health(Hr);
@@ -302,12 +339,18 @@ patrollingRadius(24).
           
          .my_team("medic_AXIS", E2);
          //.println("Mi equipo medico: ", E2 );
-         !add_task(task(4000, "TASK_GIVE_MEDICPACKS", M, pos(X, Y, Z), ""));
-         .println("me doy pack medico");
-         .concat("cfm(",X, ", ", Y, ", ", Z, ", ", Hr, ")", Content2);
-         .send_msg_with_conversation_id(E2, tell, Content2, "CFM");
-
-       }
+         !add_task(task(4000,
+    "TASK_GIVE_MEDICPACKS", M, pos(X, Y, Z),
+    ""));
+         //.println("me doy pack medico");
+         .concat("cfm(",X,
+    ", ", Y,
+    ", ", Z,
+    ", ", Hr,
+    ")", Content2);
+         .send_msg_with_conversation_id(E2, tell, Content2,
+    "CFM");
+}
        .
        
 /////////////////////////////////
@@ -316,30 +359,38 @@ patrollingRadius(24).
 
 
     
-+cfm_agree[source(M)]
-   <- ?debug(Mode); if (Mode<=1) { .println("YOUR CODE FOR cfm_agree GOES HERE.")};
++cfm_agree[source(M)
+]
+   <- ?debug(Mode); if (Mode<=1) { .println("YOUR CODE FOR cfm_agree GOES HERE.")
+};
       -cfm_agree.  
 
-+cfa_agree[source(M)]
-   <- ?debug(Mode); if (Mode<=1) { .println("YOUR CODE FOR cfa_agree GOES HERE.")};
++cfa_agree[source(M)
+]
+   <- ?debug(Mode); if (Mode<=1) { .println("YOUR CODE FOR cfa_agree GOES HERE.")
+};
       -cfa_agree.  
 
-+cfm_refuse[source(M)]
-   <- ?debug(Mode); if (Mode<=1) { .println("YOUR CODE FOR cfm_refuse GOES HERE.")};
++cfm_refuse[source(M)
+]
+   <- ?debug(Mode); if (Mode<=1) { .println("YOUR CODE FOR cfm_refuse GOES HERE.")
+};
       -cfm_refuse.  
 
-+cfa_refuse[source(M)]
-   <- ?debug(Mode); if (Mode<=1) { .println("YOUR CODE FOR cfa_refuse GOES HERE.")};
++cfa_refuse[source(M)
+]
+   <- ?debug(Mode); if (Mode<=1) { .println("YOUR CODE FOR cfa_refuse GOES HERE.")
+};
       -cfa_refuse.  
-
-
 
 /////////////////////////////////
 //  Initialize variables
 /////////////////////////////////
 
 +!init
-   <- ?debug(Mode); if (Mode<=1) { .println("YOUR CODE FOR init GOES HERE.")}
+   <- ?debug(Mode); if (Mode<=1) { .println("YOUR CODE FOR init GOES HERE.")
+}
   ?tasks(TaskList);
   ?my_position(X, Y, Z);
-   .  
+    +teamMessagesExpected(0);
+    .  
