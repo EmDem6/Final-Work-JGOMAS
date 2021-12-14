@@ -8,12 +8,7 @@ team("ALLIED").
 // Type of troop.
 type("CLASS_MEDIC").
 
-
-
-
 { include("jgomas.asl") }
-
-
 
 
 // Plans
@@ -49,14 +44,10 @@ type("CLASS_MEDIC").
 
     if (objectivePackTaken(on))
     {
-        if (returnHome(RH) & (RH == 0)) {
-			!add_task(task(5000, "TASK_GOTO_POSITION", M, pos(155, 0, 133), ""));
-			-+task_priority("TASK_GIVE_MEDICPAKS", 0);
-			-+returnHome(1);
-		}
         .println("Flag taken! Sending help message to the my team!");
         +order(help);
     } else {
+        ?my_position(X, Y, Z);
         create_medic_pack;
     }
 
@@ -203,8 +194,8 @@ type("CLASS_MEDIC").
         +task_priority("TASK_GIVE_MEDICPAKS", 0);
         +task_priority("TASK_GIVE_AMMOPAKS", 0);
         +task_priority("TASK_GIVE_BACKUP", 0);
-        +task_priority("TASK_GET_OBJECTIVE",4000);
-        +task_priority("TASK_ATTACK", 1000);
+        +task_priority("TASK_GET_OBJECTIVE",3000);
+        +task_priority("TASK_ATTACK", 1700);
         +task_priority("TASK_RUN_AWAY", 1500);
         +task_priority("TASK_GOTO_POSITION", 750);
         +task_priority("TASK_PATROLLING", 500);
@@ -334,4 +325,12 @@ type("CLASS_MEDIC").
 /////////////////////////////////
 
 +!init
-   <- ?debug(Mode); if (Mode<=1) { .println("YOUR CODE FOR init GOES HERE.")}.  
+   <- ?debug(Mode); if (Mode<=1) { .println("YOUR CODE FOR init GOES HERE.")}
+   .my_name(N);
+   .random(R);
+   ?my_position(X, Y, Z);
+   .wait(10000);
+   !add_task(task(5000,"TASK_GOTO_POSITION", N, pos(X, Y, Z-110-R*2),""));
+   // 120, 0, ~236 (220+10*[0-1]*2)
+   !add_task(task(4500,"TASK_GOTO_POSITION", N, pos(120, 0, 220+10*R*2),""));
+   .

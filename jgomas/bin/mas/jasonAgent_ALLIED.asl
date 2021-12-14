@@ -46,13 +46,14 @@ type("CLASS_SOLDIER").
 
     ?debug(Mode); if (Mode<=1) { .println("El numero de objetos es:", Length); }
 
+    
+    
     if (objectivePackTaken(on))
     {
         .println("Flag taken! Sending help message to the my team!");
         +order(help);
-        // TODO: se puede hacer? Preguntar German?
-        -+my_health_threshold(90);
-        -+my_ammo_threshold(50);
+        -+my_health_threshold(0);
+        -+my_ammo_threshold(0);
     }
         
     if(Length > 0) {
@@ -196,11 +197,11 @@ type("CLASS_SOLDIER").
 /**  You can change initial priorities if you want to change the behaviour of each agent  **/
 +!setup_priorities
     <-  +task_priority("TASK_NONE",0);
-        +task_priority("TASK_GIVE_MEDICPAKS", 2000);
+        +task_priority("TASK_GIVE_MEDICPAKS", 0);
         +task_priority("TASK_GIVE_AMMOPAKS", 0);
         +task_priority("TASK_GIVE_BACKUP", 0);
-        +task_priority("TASK_GET_OBJECTIVE",1000);
-        +task_priority("TASK_ATTACK", 1000);
+        +task_priority("TASK_GET_OBJECTIVE", 3000);
+        +task_priority("TASK_ATTACK", 2000);
         +task_priority("TASK_RUN_AWAY", 1500);
         +task_priority("TASK_GOTO_POSITION", 750);
         +task_priority("TASK_PATROLLING", 500);
@@ -339,7 +340,13 @@ type("CLASS_SOLDIER").
 /////////////////////////////////
 
 +!init
-   <- ?debug(Mode); if (Mode<=1) { .println("YOUR CODE FOR init GOES HERE.")}.  
+   <- ?debug(Mode); if (Mode<=1) { .println("YOUR CODE FOR init GOES HERE.")}
+   .random(R);
+   ?my_position(X, Y, Z);
+   .wait(3000);
+   !add_task(task(5000,"TASK_GOTO_POSITION", N, pos(X, Y, Z-110-R*2),""));
+   !add_task(task(5000,"TASK_GOTO_POSITION", N, pos(120, 0, 236),""));
+   .  
 
 
 
