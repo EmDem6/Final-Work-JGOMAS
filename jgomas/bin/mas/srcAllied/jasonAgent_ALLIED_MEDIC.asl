@@ -42,6 +42,13 @@ type("CLASS_MEDIC").
 
     ?debug(Mode); if (Mode<=1) { .println("El numero de objetos es:", Length); }
 
+    .my_team("AXIS", E1);
+    .concat("cfm(",0, ", ", 0, ", ", 0, ", ", 15, ")", Content1);
+    .send_msg_with_conversation_id(E1, tell, Content1, "INT");
+
+    .concat("cfa(",0, ", ", 0, ", ", 0, ", ", 250, ")", Content2);
+    .send_msg_with_conversation_id(E1, tell, Content2, "INT2");
+
     if (objectivePackTaken(on))
     {
         .println("Flag taken! Sending help message to the my team!");
@@ -144,8 +151,10 @@ type("CLASS_MEDIC").
         .nth(6, AimedAgent, NewDestination);
         ?debug(Mode); if (Mode<=1) { .println("NUEVO DESTINO DEBERIA SER: ", NewDestination); }
         // Para seguir matando a todos
-        !add_task(task(3000, "TASK_GOTO_POSITION", M, NewDestination, ""));
-        -+state(standing);
+        if (not (objectivePackTaken(on))) {
+            !add_task(task(3000, "TASK_GOTO_POSITION", M, NewDestination, ""));
+            -+state(standing);
+        }
     }
     .
 
@@ -214,7 +223,9 @@ type("CLASS_MEDIC").
     if (not aimed_agent) {
         .println("Atacando por la espalda!");
         ?my_position(X, Y, Z);
-        !add_task(task(4000, "TASK_GOTO_POSITION", M, pos(X-5, Y, Z), ""));
+        if (not (objectivePackTaken(on))) {
+            !add_task(task(4000, "TASK_GOTO_POSITION", M, pos(X-5, Y, Z), ""));
+        }
     }
     .
     ///<- ?debug(Mode); if (Mode<=1) { .println("YOUR CODE FOR PERFORM_INJURY_ACTION GOES HERE.") }. 
@@ -377,10 +388,10 @@ type("CLASS_MEDIC").
    .my_name(N);
    .random(R);
    ?my_position(X, Y, Z);
-   .wait(10000);
    !add_task(task(5000,"TASK_GOTO_POSITION", N, pos(X, Y, Z-110-R*2),""));
+   .wait(10000);
    // 120, 0, ~236 (220+10*[0-1]*2)
-   !add_task(task(4500,"TASK_GOTO_POSITION", N, pos(120, 0, 220+10*R*2),""));
+   !add_task(task(4500,"TASK_GOTO_POSITION", N, pos(120, 0, 240-10*R*2),""));
 
    // TODO: ¿estaria bien meter una posicion intermedia para que lleguen desperdigados?
    .

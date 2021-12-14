@@ -1,584 +1,697 @@
 Retrieving CommandDispatcher for platform null
 
-Activating Agent (A3@127.0.0.1:1099/JADE - id: -1) ... [OK]
+Activating Agent (Corralo@192.168.1.106:1099/JADE - id: -1) ... [OK]
 Nothing to register
 
-Activating Agent (A6@127.0.0.1:1099/JADE - id: -1) ... [OK]
+Activating Agent (A5@192.168.1.106:1099/JADE - id: -1) ... [OK]
+
+Activating Agent (A2@192.168.1.106:1099/JADE - id: -1) ... [OK]
+Nothing to register
 Nothing to register
 
-Activating Agent (E7@127.0.0.1:1099/JADE - id: -1) ... [OK]
+Activating Agent (Lechuga@192.168.1.106:1099/JADE - id: -1) ... [OK]
 Nothing to register
 
-Activating Agent (A4@127.0.0.1:1099/JADE - id: -1) ... [OK]
+Activating Agent (Adrian@192.168.1.106:1099/JADE - id: -1) ... [OK]
 Nothing to register
 
-Activating Agent (E5@127.0.0.1:1099/JADE - id: -1) ... [OK]
+Activating Agent (A3@192.168.1.106:1099/JADE - id: -1) ... [OK]
 Nothing to register
 
-Activating Agent (E4@127.0.0.1:1099/JADE - id: -1) ... [OK]
+Activating Agent (A6@192.168.1.106:1099/JADE - id: -1) ... [OK]
 Nothing to register
 
-Activating Agent (E2@127.0.0.1:1099/JADE - id: -1) ... [OK]
+Activating Agent (A4@192.168.1.106:1099/JADE - id: -1) ... [OK]
 Nothing to register
 
-Activating Agent (A7@127.0.0.1:1099/JADE - id: -1) ... [OK]
+Activating Agent (Edu@192.168.1.106:1099/JADE - id: -1) ... [OK]
 Nothing to register
 
-Activating Agent (A5@127.0.0.1:1099/JADE - id: -1) ... [OK]
+Activating Agent (Elastico@192.168.1.106:1099/JADE - id: -1) ... [OK]
 Nothing to register
 
-Activating Agent (E6@127.0.0.1:1099/JADE - id: -1) ... [OK]
+Activating Agent (A7@192.168.1.106:1099/JADE - id: -1) ... [OK]
 Nothing to register
 
-Activating Agent (E1@127.0.0.1:1099/JADE - id: -1) ... [OK]
+Activating Agent (Fuego@192.168.1.106:1099/JADE - id: -1) ... [OK]
 Nothing to register
 
-Activating Agent (A2@127.0.0.1:1099/JADE - id: -1) ... [OK]
+Activating Agent (LaCosa@192.168.1.106:1099/JADE - id: -1) ... [OK]
 Nothing to register
 
-Activating Agent (A1@127.0.0.1:1099/JADE - id: -1) ... [OK]
+Activating Agent (A1@192.168.1.106:1099/JADE - id: -1) ... [OK]
 Nothing to register
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+ performMedictAction(), el valor de Power es: 100
+ performMedictAction(), el valor de Power es: 75
+ performMedictAction(), el valor de Power es: 50
+Being shot: 2 propCont: shooting_to_me(2)
+ performMedictAction(), el valor de Power es: 25
+ performMedictAction(), el valor de Power es: 0
+Edu (Packs delivered): 4
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Arrived: medic_pack_taken(20)
+Arrived: medic_pack_taken(20)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+ performMedictAction(), el valor de Power es: 9
+Edu (Packs delivered): 0
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+ performMedictAction(), el valor de Power es: 100
+ performMedictAction(), el valor de Power es: 75
+Being shot: 2 propCont: shooting_to_me(2)
+ performMedictAction(), el valor de Power es: 50
+Being shot: 2 propCont: shooting_to_me(2)
+ performMedictAction(), el valor de Power es: 25
+Being shot: 2 propCont: shooting_to_me(2)
+ performMedictAction(), el valor de Power es: 0
+Elastico (Packs delivered): 4
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+ performMedictAction(), el valor de Power es: 11
+Edu (Packs delivered): 0
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
 
-Activating Agent (E3@127.0.0.1:1099/JADE - id: -1) ... [OK]
-Nothing to register
-Being shot: 3 propCont: shooting_to_me(3)
-Being shot: 3 propCont: shooting_to_me(3)
-Being shot: 3 propCont: shooting_to_me(3)
-Being shot: 3 propCont: shooting_to_me(3)
-Being shot: 3 propCont: shooting_to_me(3)
-Being shot: 3 propCont: shooting_to_me(3)
-Being shot: 3 propCont: shooting_to_me(3)
-Being shot: 3 propCont: shooting_to_me(3)
-Being shot: 3 propCont: shooting_to_me(3)
-Being shot: 3 propCont: shooting_to_me(3)
-Being shot: 3 propCont: shooting_to_me(3)
-Being shot: 3 propCont: shooting_to_me(3)
-Being shot: 3 propCont: shooting_to_me(3)
-Being shot: 3 propCont: shooting_to_me(3)
-Being shot: 3 propCont: shooting_to_me(3)
-Being shot: 3 propCont: shooting_to_me(3)
-Being shot: 3 propCont: shooting_to_me(3)
-Being shot: 3 propCont: shooting_to_me(3)
-Being shot: 3 propCont: shooting_to_me(3)
-Being shot: 3 propCont: shooting_to_me(3)
-Being shot: 3 propCont: shooting_to_me(3)
-Being shot: 3 propCont: shooting_to_me(3)
-Being shot: 3 propCont: shooting_to_me(3)
-Being shot: 3 propCont: shooting_to_me(3)
-Being shot: 3 propCont: shooting_to_me(3)
-Being shot: 3 propCont: shooting_to_me(3)
-Being shot: 3 propCont: shooting_to_me(3)
-Being shot: 3 propCont: shooting_to_me(3)
-Being shot: 3 propCont: shooting_to_me(3)
-Being shot: 3 propCont: shooting_to_me(3)
-Being shot: 3 propCont: shooting_to_me(3)
-Being shot: 3 propCont: shooting_to_me(3)
-Being shot: 3 propCont: shooting_to_me(3)
-Being shot: 3 propCont: shooting_to_me(3)
-Being shot: 3 propCont: shooting_to_me(3)
-Being shot: 3 propCont: shooting_to_me(3)
-Being shot: 3 propCont: shooting_to_me(3)
-Being shot: 3 propCont: shooting_to_me(3)
-Being shot: 3 propCont: shooting_to_me(3)
-Warning: No mapping found for expired timer 1639412241401
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 3 propCont: shooting_to_me(3)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 3 propCont: shooting_to_me(3)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 3 propCont: shooting_to_me(3)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 3 propCont: shooting_to_me(3)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 3 propCont: shooting_to_me(3)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 3 propCont: shooting_to_me(3)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 3 propCont: shooting_to_me(3)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 3 propCont: shooting_to_me(3)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 3 propCont: shooting_to_me(3)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 3 propCont: shooting_to_me(3)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 3 propCont: shooting_to_me(3)
-Being shot: 3 propCont: shooting_to_me(3)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 3 propCont: shooting_to_me(3)
-Being shot: 3 propCont: shooting_to_me(3)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 3 propCont: shooting_to_me(3)
-Being shot: 3 propCont: shooting_to_me(3)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 3 propCont: shooting_to_me(3)
-Being shot: 3 propCont: shooting_to_me(3)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 3 propCont: shooting_to_me(3)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 2 propCont: shooting_to_me(2)
-
-Agent (A2@127.0.0.1:1099/JADE):
+Agent (Edu@192.168.1.106:1099/JADE):
    * Deregistering ... [OK]
    * Killing ......... [OK]
 
+ performMedictAction(), el valor de Power es: 1
+Elastico (Packs delivered): 0
 Being shot: 2 propCont: shooting_to_me(2)
 Being shot: 2 propCont: shooting_to_me(2)
 Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+ performMedictAction(), el valor de Power es: 100
+Being shot: 2 propCont: shooting_to_me(2)
+Arrived: medic_pack_taken(20)
+ performMedictAction(), el valor de Power es: 75
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Arrived: medic_pack_taken(20)
+ performMedictAction(), el valor de Power es: 50
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Arrived: medic_pack_taken(20)
+ performMedictAction(), el valor de Power es: 25
+ performMedictAction(), el valor de Power es: 0
+A6 (Packs delivered): 4
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Arrived: medic_pack_taken(20)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+ performMedictAction(), el valor de Power es: 17
+Elastico (Packs delivered): 0
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+ performMedictAction(), el valor de Power es: 100
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Arrived: medic_pack_taken(20)
+Being shot: 2 propCont: shooting_to_me(2)
+
+Agent (Elastico@192.168.1.106:1099/JADE):
+   * Deregistering ... [OK]
+   * Killing ......... [OK]
+
+ performMedictAction(), el valor de Power es: 75
+ performMedictAction(), el valor de Power es: 50
+Being shot: 2 propCont: shooting_to_me(2)
+ performMedictAction(), el valor de Power es: 25
+Arrived: medic_pack_taken(20)
+ performMedictAction(), el valor de Power es: 0
+A4 (Packs delivered): 4
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+ performMedictAction(), el valor de Power es: 1
+A4 (Packs delivered): 0
+Being shot: 2 propCont: shooting_to_me(2)
+ performMedictAction(), el valor de Power es: 1
+A4 (Packs delivered): 0
+Being shot: 2 propCont: shooting_to_me(2)
+Arrived: medic_pack_taken(20)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Arrived: medic_pack_taken(20)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Arrived: medic_pack_taken(20)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+LaCosa (Packs delivered): 4
+Being shot: 2 propCont: shooting_to_me(2)
+Arrived: ammo_pack_taken(20)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+LaCosa (Packs delivered): 0
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Arrived: ammo_pack_taken(20)
+Fuego (Packs delivered): 4
+Arrived: ammo_pack_taken(20)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+LaCosa (Packs delivered): 0
 Being shot: 2 propCont: shooting_to_me(2)
 Being shot: 2 propCont: shooting_to_me(2)
 Arrived: objective_position(24,0,232)
 Being shot: 2 propCont: shooting_to_me(2)
+
+Agent (Corralo@192.168.1.106:1099/JADE):
+   * Deregistering ... [OK]
+   * Killing ......... [OK]
+
+LaCosa (Packs delivered): 0
+Fuego (Packs delivered): 0
 Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 3 propCont: shooting_to_me(3)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 3 propCont: shooting_to_me(3)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 3 propCont: shooting_to_me(3)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 3 propCont: shooting_to_me(3)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 3 propCont: shooting_to_me(3)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 3 propCont: shooting_to_me(3)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 3 propCont: shooting_to_me(3)
-Being shot: 3 propCont: shooting_to_me(3)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 3 propCont: shooting_to_me(3)
-Being shot: 3 propCont: shooting_to_me(3)
-Being shot: 3 propCont: shooting_to_me(3)
-Being shot: 3 propCont: shooting_to_me(3)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 3 propCont: shooting_to_me(3)
-Being shot: 3 propCont: shooting_to_me(3)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 3 propCont: shooting_to_me(3)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 3 propCont: shooting_to_me(3)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 3 propCont: shooting_to_me(3)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 2 propCont: shooting_to_me(2)
+Fuego (Packs delivered): 0
+LaCosa (Packs delivered): 0
+Fuego (Packs delivered): 0
+LaCosa (Packs delivered): 0
+Fuego (Packs delivered): 0
+Fuego (Packs delivered): 0
+Fuego (Packs delivered): 0
 Arrived: ammo_pack_taken(20)
-E6 (Packs delivered): 4
+LaCosa (Packs delivered): 0
+Fuego (Packs delivered): 0
+LaCosa (Packs delivered): 0
+Fuego (Packs delivered): 0
+Arrived: ammo_pack_taken(20)
 Being shot: 2 propCont: shooting_to_me(2)
-E6 (Packs delivered): 0
- performMedictAction(), el valor de Power es: 100
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+
+Agent (Fuego@192.168.1.106:1099/JADE):
+   * Deregistering ... [OK]
+   * Killing ......... [OK]
+
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+ performMedictAction(), el valor de Power es: 86
 Arrived: medic_pack_taken(20)
- performMedictAction(), el valor de Power es: 75
- performMedictAction(), el valor de Power es: 50
- performMedictAction(), el valor de Power es: 25
- performMedictAction(), el valor de Power es: 0
-E5 (Packs delivered): 4
-Arrived: medic_pack_taken(20)
+ performMedictAction(), el valor de Power es: 61
 Being shot: 2 propCont: shooting_to_me(2)
 Arrived: medic_pack_taken(20)
-Arrived: ammo_pack_taken(20)
-E6 (Packs delivered): 0
- performMedictAction(), el valor de Power es: 0
-E5 (Packs delivered): 0
- performMedictAction(), el valor de Power es: 100
-Being shot: 3 propCont: shooting_to_me(3)
- performMedictAction(), el valor de Power es: 75
- performMedictAction(), el valor de Power es: 50
- performMedictAction(), el valor de Power es: 25
- performMedictAction(), el valor de Power es: 0
-E4 (Packs delivered): 4
+ performMedictAction(), el valor de Power es: 36
 Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 3 propCont: shooting_to_me(3)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 2 propCont: shooting_to_me(2)
- performMedictAction(), el valor de Power es: 1
-E5 (Packs delivered): 0
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 3 propCont: shooting_to_me(3)
- performMedictAction(), el valor de Power es: 1
-E5 (Packs delivered): 0
+Arrived: medic_pack_taken(20)
+ performMedictAction(), el valor de Power es: 11
+A6 (Packs delivered): 3
 Being shot: 2 propCont: shooting_to_me(2)
 Being shot: 2 propCont: shooting_to_me(2)
 Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 3 propCont: shooting_to_me(3)
- performMedictAction(), el valor de Power es: 2
-E5 (Packs delivered): 0
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 3 propCont: shooting_to_me(3)
- performMedictAction(), el valor de Power es: 2
-E5 (Packs delivered): 0
+ performMedictAction(), el valor de Power es: 12
+A6 (Packs delivered): 0
 Being shot: 2 propCont: shooting_to_me(2)
 Being shot: 2 propCont: shooting_to_me(2)
 Being shot: 2 propCont: shooting_to_me(2)
 Being shot: 2 propCont: shooting_to_me(2)
- performMedictAction(), el valor de Power es: 3
-E5 (Packs delivered): 0
+ performMedictAction(), el valor de Power es: 12
+A6 (Packs delivered): 0
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+ performMedictAction(), el valor de Power es: 12
+A6 (Packs delivered): 0
 Being shot: 2 propCont: shooting_to_me(2)
 Being shot: 2 propCont: shooting_to_me(2)
 Being shot: 2 propCont: shooting_to_me(2)
 Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 3 propCont: shooting_to_me(3)
- performMedictAction(), el valor de Power es: 3
-E5 (Packs delivered): 0
 Being shot: 2 propCont: shooting_to_me(2)
 Being shot: 2 propCont: shooting_to_me(2)
 Being shot: 2 propCont: shooting_to_me(2)
 Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 3 propCont: shooting_to_me(3)
- performMedictAction(), el valor de Power es: 4
-E5 (Packs delivered): 0
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 3 propCont: shooting_to_me(3)
- performMedictAction(), el valor de Power es: 4
-E5 (Packs delivered): 0
-Being shot: 3 propCont: shooting_to_me(3)
 Being shot: 2 propCont: shooting_to_me(2)
 Being shot: 2 propCont: shooting_to_me(2)
 Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 3 propCont: shooting_to_me(3)
- performMedictAction(), el valor de Power es: 4
-E5 (Packs delivered): 0
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 3 propCont: shooting_to_me(3)
- performMedictAction(), el valor de Power es: 4
-E5 (Packs delivered): 0
-Being shot: 3 propCont: shooting_to_me(3)
 Being shot: 2 propCont: shooting_to_me(2)
 Being shot: 2 propCont: shooting_to_me(2)
 Being shot: 2 propCont: shooting_to_me(2)
- performMedictAction(), el valor de Power es: 5
-E5 (Packs delivered): 0
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 3 propCont: shooting_to_me(3)
- performMedictAction(), el valor de Power es: 5
-E5 (Packs delivered): 0
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 3 propCont: shooting_to_me(3)
-Being shot: 2 propCont: shooting_to_me(2)
- performMedictAction(), el valor de Power es: 5
-E5 (Packs delivered): 0
 Being shot: 2 propCont: shooting_to_me(2)
 Being shot: 2 propCont: shooting_to_me(2)
 Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 3 propCont: shooting_to_me(3)
- performMedictAction(), el valor de Power es: 6
-E5 (Packs delivered): 0
 Being shot: 2 propCont: shooting_to_me(2)
 Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 3 propCont: shooting_to_me(3)
 Being shot: 2 propCont: shooting_to_me(2)
 Being shot: 2 propCont: shooting_to_me(2)
- performMedictAction(), el valor de Power es: 6
-E5 (Packs delivered): 0
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+ performMedictAction(), el valor de Power es: 43
+ performMedictAction(), el valor de Power es: 18
+A6 (Packs delivered): 1
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Arrived: medic_pack_taken(20)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
+Being shot: 2 propCont: shooting_to_me(2)
 Being shot: 2 propCont: shooting_to_me(2)
 Being shot: 2 propCont: shooting_to_me(2)
 Being shot: 2 propCont: shooting_to_me(2)
 
-Agent (A1@127.0.0.1:1099/JADE):
+Agent (LaCosa@192.168.1.106:1099/JADE):
    * Deregistering ... [OK]
    * Killing ......... [OK]
 
-Being shot: 3 propCont: shooting_to_me(3)
-Being shot: 2 propCont: shooting_to_me(2)
- performMedictAction(), el valor de Power es: 7
-E5 (Packs delivered): 0
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 3 propCont: shooting_to_me(3)
- performMedictAction(), el valor de Power es: 7
-E5 (Packs delivered): 0
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 2 propCont: shooting_to_me(2)
- performMedictAction(), el valor de Power es: 8
-E5 (Packs delivered): 0
-Being shot: 3 propCont: shooting_to_me(3)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 3 propCont: shooting_to_me(3)
- performMedictAction(), el valor de Power es: 8
-E5 (Packs delivered): 0
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 2 propCont: shooting_to_me(2)
- performMedictAction(), el valor de Power es: 8
-E5 (Packs delivered): 0
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 3 propCont: shooting_to_me(3)
- performMedictAction(), el valor de Power es: 9
-E5 (Packs delivered): 0
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 3 propCont: shooting_to_me(3)
- performMedictAction(), el valor de Power es: 9
-E5 (Packs delivered): 0
-Being shot: 2 propCont: shooting_to_me(2)
- performMedictAction(), el valor de Power es: 9
-E5 (Packs delivered): 0
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 3 propCont: shooting_to_me(3)
-
-Agent (E4@127.0.0.1:1099/JADE):
-   * Deregistering ... [OK]
-   * Killing ......... [OK]
-
-Being shot: 3 propCont: shooting_to_me(3)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 3 propCont: shooting_to_me(3)
-Being shot: 3 propCont: shooting_to_me(3)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 2 propCont: shooting_to_me(2)
-
-Agent (A7@127.0.0.1:1099/JADE):
-   * Deregistering ... [OK]
-   * Killing ......... [OK]
-
-Being shot: 3 propCont: shooting_to_me(3)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 3 propCont: shooting_to_me(3)
-E7 (Packs delivered): 4
-Arrived: ammo_pack_taken(20)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 3 propCont: shooting_to_me(3)
-Being shot: 3 propCont: shooting_to_me(3)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 3 propCont: shooting_to_me(3)
-Being shot: 2 propCont: shooting_to_me(2)
-E7 (Packs delivered): 0
-Being shot: 3 propCont: shooting_to_me(3)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 2 propCont: shooting_to_me(2)
-E7 (Packs delivered): 0
-Being shot: 3 propCont: shooting_to_me(3)
-E7 (Packs delivered): 0
-Being shot: 3 propCont: shooting_to_me(3)
-E7 (Packs delivered): 0
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 2 propCont: shooting_to_me(2)
-E6 (Packs delivered): 0
-E7 (Packs delivered): 0
-Being shot: 3 propCont: shooting_to_me(3)
-E6 (Packs delivered): 0
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 2 propCont: shooting_to_me(2)
-E6 (Packs delivered): 0
-E7 (Packs delivered): 0
-Being shot: 3 propCont: shooting_to_me(3)
-E7 (Packs delivered): 0
-Being shot: 3 propCont: shooting_to_me(3)
-E7 (Packs delivered): 0
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 2 propCont: shooting_to_me(2)
-E6 (Packs delivered): 0
-E7 (Packs delivered): 0
-Being shot: 3 propCont: shooting_to_me(3)
-E6 (Packs delivered): 0
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 2 propCont: shooting_to_me(2)
-E6 (Packs delivered): 0
-E7 (Packs delivered): 0
-Being shot: 3 propCont: shooting_to_me(3)
-E7 (Packs delivered): 0
-Being shot: 3 propCont: shooting_to_me(3)
-E7 (Packs delivered): 0
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 2 propCont: shooting_to_me(2)
-E6 (Packs delivered): 0
-E7 (Packs delivered): 0
-Being shot: 3 propCont: shooting_to_me(3)
-Arrived: ammo_pack_taken(20)
-Being shot: 3 propCont: shooting_to_me(3)
-E6 (Packs delivered): 0
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 2 propCont: shooting_to_me(2)
-E6 (Packs delivered): 0
-E7 (Packs delivered): 0
-Being shot: 3 propCont: shooting_to_me(3)
-Being shot: 3 propCont: shooting_to_me(3)
-E7 (Packs delivered): 0
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 2 propCont: shooting_to_me(2)
-E6 (Packs delivered): 0
-E7 (Packs delivered): 0
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 2 propCont: shooting_to_me(2)
-E7 (Packs delivered): 0
-E6 (Packs delivered): 0
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 2 propCont: shooting_to_me(2)
-E7 (Packs delivered): 0
-E6 (Packs delivered): 0
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 2 propCont: shooting_to_me(2)
-E7 (Packs delivered): 0
-E6 (Packs delivered): 0
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 2 propCont: shooting_to_me(2)
-E7 (Packs delivered): 0
-E6 (Packs delivered): 0
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 2 propCont: shooting_to_me(2)
-E7 (Packs delivered): 0
-E6 (Packs delivered): 0
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 2 propCont: shooting_to_me(2)
-E7 (Packs delivered): 0
-E6 (Packs delivered): 0
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 2 propCont: shooting_to_me(2)
-E7 (Packs delivered): 0
-E6 (Packs delivered): 0
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 2 propCont: shooting_to_me(2)
-E7 (Packs delivered): 0
-E6 (Packs delivered): 0
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 2 propCont: shooting_to_me(2)
-E7 (Packs delivered): 0
-E6 (Packs delivered): 0
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 2 propCont: shooting_to_me(2)
-E7 (Packs delivered): 0
-E6 (Packs delivered): 0
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 2 propCont: shooting_to_me(2)
-E7 (Packs delivered): 0
-E6 (Packs delivered): 0
-Being shot: 2 propCont: shooting_to_me(2)
-E6 (Packs delivered): 0
-Being shot: 2 propCont: shooting_to_me(2)
-E7 (Packs delivered): 0
-Being shot: 2 propCont: shooting_to_me(2)
-E7 (Packs delivered): 0
-Being shot: 2 propCont: shooting_to_me(2)
-E7 (Packs delivered): 0
-Being shot: 2 propCont: shooting_to_me(2)
-E7 (Packs delivered): 0
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 2 propCont: shooting_to_me(2)
-E7 (Packs delivered): 0
-Being shot: 2 propCont: shooting_to_me(2)
-E7 (Packs delivered): 0
-Being shot: 2 propCont: shooting_to_me(2)
-E7 (Packs delivered): 0
-Being shot: 2 propCont: shooting_to_me(2)
-Arrived: ammo_pack_taken(20)
-E6 (Packs delivered): 1
-Being shot: 2 propCont: shooting_to_me(2)
-
-Agent (A4@127.0.0.1:1099/JADE):
-   * Deregistering ... [OK]
-   * Killing ......... [OK]
-
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 3 propCont: shooting_to_me(3)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 3 propCont: shooting_to_me(3)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 3 propCont: shooting_to_me(3)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 3 propCont: shooting_to_me(3)
-Being shot: 3 propCont: shooting_to_me(3)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 3 propCont: shooting_to_me(3)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 3 propCont: shooting_to_me(3)
-Being shot: 3 propCont: shooting_to_me(3)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 3 propCont: shooting_to_me(3)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 3 propCont: shooting_to_me(3)
-Being shot: 3 propCont: shooting_to_me(3)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 3 propCont: shooting_to_me(3)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 3 propCont: shooting_to_me(3)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 3 propCont: shooting_to_me(3)
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 3 propCont: shooting_to_me(3)
-Being shot: 2 propCont: shooting_to_me(2)
-E6 (Packs delivered): 0
-Being shot: 2 propCont: shooting_to_me(2)
-E6 (Packs delivered): 0
-Being shot: 2 propCont: shooting_to_me(2)
-E6 (Packs delivered): 0
-Being shot: 2 propCont: shooting_to_me(2)
-E6 (Packs delivered): 0
-Being shot: 2 propCont: shooting_to_me(2)
-E6 (Packs delivered): 0
-Being shot: 2 propCont: shooting_to_me(2)
-E6 (Packs delivered): 0
-Being shot: 2 propCont: shooting_to_me(2)
-Being shot: 2 propCont: shooting_to_me(2)
-E6 (Packs delivered): 0
-E7 (Packs delivered): 1
-Being shot: 2 propCont: shooting_to_me(2)
-E7 (Packs delivered): 0
-Being shot: 2 propCont: shooting_to_me(2)
-E7 (Packs delivered): 0
-Being shot: 2 propCont: shooting_to_me(2)
-E7 (Packs delivered): 0
