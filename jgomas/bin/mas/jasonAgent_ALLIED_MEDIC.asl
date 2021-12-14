@@ -46,9 +46,6 @@ type("CLASS_MEDIC").
     {
         .println("Flag taken! Sending help message to the my team!");
         +order(help);
-    } else {
-        ?my_position(X, Y, Z);
-        create_medic_pack;
     }
 
     if (Length > 0) {
@@ -143,11 +140,11 @@ type("CLASS_MEDIC").
 
 
         if (AimedAgentTeam == 200) {
-    
-                .nth(6, AimedAgent, NewDestination);
-                ?debug(Mode); if (Mode<=1) { .println("NUEVO DESTINO DEBERIA SER: ", NewDestination); }
-          
-            }
+            .nth(6, AimedAgent, NewDestination);
+            ?debug(Mode); if (Mode<=1) { .println("NUEVO DESTINO DEBERIA SER: ", NewDestination); }
+            // Para seguir matando a todos
+            !add_task(task(3000, "TASK_GOTO_POSITION", M, NewDestination, ""));
+        }
  .
 
 /**
@@ -172,7 +169,30 @@ type("CLASS_MEDIC").
 */  
 +!perform_no_ammo_action . 
    /// <- ?debug(Mode); if (Mode<=1) { .println("YOUR CODE FOR PERFORM_NO_AMMO_ACTION GOES HERE.") }.
-    
+
+
+// TODO: QUITAR PARA MIRAR SI HAY MEDICINAS... NO FUNCIONA BIEN
++!check_medicine 
+    <- 
+    ?my_health_threshold(Ht);
+    ?my_health(Hr);
+    if (Hr <= Ht & not current_task(task(_,"TASK_RUN_AWAY",_,_,_))) { 
+            ?fovObjects(Objects);
+            .length(Objects, Length);
+            -+count(0);
+            while(count(X) & X < Length){
+                .nth(X, Objects, Object);
+                .nth(4, Object, Dis);
+                .nth(2, Object, Type);
+                if(Type == 1001 & Dis < 17){
+                    .nth(6, Object, Pos);
+                    +medics(Pos);
+                    -+state(standing);
+                }
+                -+count(X+1);
+            }
+    }
+    .
 /**
      * Action to do when an agent is being shot.
      * 
@@ -182,7 +202,19 @@ type("CLASS_MEDIC").
      * <em> It's very useful to overload this plan. </em>
      * 
      */
-+!perform_injury_action .
++!perform_injury_action
+    <-
+    ?my_health(Hr);
+    if (Hr < 60) {
+        create_medic_pack;
+    }
+
+    if (not aimed_agent) {
+        .println("Atacando por la espalda!");
+        ?my_position(X, Y, Z);
+        !add_task(task(2500, "TASK_GOTO_POSITION", M, pos(X-5, Y, Z), ""));
+    }
+    .
     ///<- ?debug(Mode); if (Mode<=1) { .println("YOUR CODE FOR PERFORM_INJURY_ACTION GOES HERE.") }. 
         
 
@@ -194,7 +226,7 @@ type("CLASS_MEDIC").
         +task_priority("TASK_GIVE_MEDICPAKS", 0);
         +task_priority("TASK_GIVE_AMMOPAKS", 0);
         +task_priority("TASK_GIVE_BACKUP", 0);
-        +task_priority("TASK_GET_OBJECTIVE",3000);
+        +task_priority("TASK_GET_OBJECTIVE",2000);
         +task_priority("TASK_ATTACK", 1700);
         +task_priority("TASK_RUN_AWAY", 1500);
         +task_priority("TASK_GOTO_POSITION", 750);
@@ -215,9 +247,7 @@ type("CLASS_MEDIC").
  * <em> It's very useful to overload this plan. </em>
  *
  */
-+!update_targets
-	<-	?debug(Mode); if (Mode<=1) { .println("YOUR CODE FOR UPDATE_TARGETS GOES HERE.") }.
-	
++!update_targets .
 	
 	
 /////////////////////////////////
@@ -248,7 +278,7 @@ type("CLASS_MEDIC").
  *
  */
  +!checkAmmoAction
-     <-  -+fieldopsAction(on).
+     <-  -+fieldopsAction(false).
       //  go to help
 
 
