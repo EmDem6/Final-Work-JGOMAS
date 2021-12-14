@@ -8,7 +8,12 @@ team("ALLIED").
 // Type of troop.
 type("CLASS_MEDIC").
 
+
+
+
 { include("jgomas.asl") }
+
+
 
 
 // Plans
@@ -35,71 +40,53 @@ type("CLASS_MEDIC").
  * 
  */
 +!get_agent_to_aim
-    <-  
-    ?debug(Mode); if (Mode<=2) { .println("Looking for agents to aim."); }
-    ?fovObjects(FOVObjects);
-    .length(FOVObjects, Length);
+<-  ?debug(Mode); if (Mode<=2) { .println("Looking for agents to aim."); }
+?fovObjects(FOVObjects);
+.length(FOVObjects, Length);
 
-    ?debug(Mode); if (Mode<=1) { .println("El numero de objetos es:", Length); }
+?debug(Mode); if (Mode<=1) { .println("El numero de objetos es:", Length); }
 
-    if (objectivePackTaken(on))
-    {
-        .println("Flag taken! Sending help message to the my team!");
-        +order(help);
-    }
-
-    if (Length > 0) {
-        +bucle(0);
-            
-        -+aimed("false");
+if (Length > 0) {
+    +bucle(0);
+    
+    -+aimed("false");
+    
+    while (aimed("false") & bucle(X) & (X < Length)) {
         
-        while (not no_shoot("true") & bucle(X) & (X < Length)) {
+        //.println("En el bucle, y X vale:", X);
+        
+        .nth(X, FOVObjects, Object);
+        // Object structure
+        // [#, TEAM, TYPE, ANGLE, DISTANCE, HEALTH, POSITION ]
+        .nth(2, Object, Type);
+        
+        ?debug(Mode); if (Mode<=2) { .println("Objeto Analizado: ", Object); }
+        
+        if (Type > 1000) {
+            ?debug(Mode); if (Mode<=2) { .println("I found some object."); }
+        } else {
+            // Object may be an enemy
+            .nth(1, Object, Team);
+            ?my_formattedTeam(MyTeam);
             
-            //.println("En el bucle, y X vale:", X);
-            
-            .nth(X, FOVObjects, Object);
-            // Object structure
-            // [#, TEAM, TYPE, ANGLE, DISTANCE, HEALTH, POSITION ]
-            .nth(2, Object, Type);
-            
-            ?debug(Mode); if (Mode<=2) { .println("Objeto Analizado: ", Object); }
-            
-            if (Type > 1000) {
-                ?debug(Mode); if (Mode<=2) { .println("I found some object."); }
-            } else {
-                // Object may be an enemy
-                .nth(1, Object, Team);
-                ?my_formattedTeam(MyTeam);
-                
-                if (Team == 200) {  // Only if I'm ALLIED
-                    
-                    ?debug(Mode); if (Mode<=2) { .println("Aiming an enemy. . .", MyTeam, " ", .number(MyTeam) , " ", Team, " ", .number(Team)); }
-                    +aimed_agent(Object);
-                    -+aimed("true");
-                    
-                }  else {
-                    if (Team == 100) {
-                        .nth(3, Object, Angle);
-                        if (math.abs(Angle) < 0.1) {
-                            +no_shoot("true");
-                            .println("ALLIES in front, not aiming!");
-                        } 
-                    }
-                }
+            if (Team == 200) {  // Only if I'm ALLIED
+				
+                ?debug(Mode); if (Mode<=2) { .println("Aiming an enemy. . .", MyTeam, " ", .number(MyTeam) , " ", Team, " ", .number(Team)); }
+                +aimed_agent(Object);
+                -+aimed("true");
                 
             }
-            -+bucle(X+1);
+            
         }
-
-        if (no_shoot("true")) {
-            -aimed_agent(_);
-            -+aimed("false");
-            -no_shoot("true");
-        }
+        
+        -+bucle(X+1);
+        
     }
+    
+   
+}
 
-    -bucle(_).
-
+-bucle(_).
 
 /////////////////////////////////
 //  LOOK RESPONSE
@@ -130,27 +117,22 @@ type("CLASS_MEDIC").
 * 
 */
 +!perform_aim_action
-    <-  
-    // Aimed agents have the following format:
-    // [#, TEAM, TYPE, ANGLE, DISTANCE, HEALTH, POSITION ]
-    +pr(3000);
-    ?aimed_agent(AimedAgent);
-    ?debug(Mode); if (Mode<=1) { .println("AimedAgent ", AimedAgent); }
-    .nth(1, AimedAgent, AimedAgentTeam);
-    ?debug(Mode); if (Mode<=2) { .println("BAJO EL PUNTO DE MIRA TENGO A ALGUIEN DEL EQUIPO ", AimedAgentTeam);             }
-    ?my_formattedTeam(MyTeam);
+    <-  // Aimed agents have the following format:
+        // [#, TEAM, TYPE, ANGLE, DISTANCE, HEALTH, POSITION ]
+        ?aimed_agent(AimedAgent);
+        ?debug(Mode); if (Mode<=1) { .println("AimedAgent ", AimedAgent); }
+        .nth(1, AimedAgent, AimedAgentTeam);
+        ?debug(Mode); if (Mode<=2) { .println("BAJO EL PUNTO DE MIRA TENGO A ALGUIEN DEL EQUIPO ", AimedAgentTeam);             }
+        ?my_formattedTeam(MyTeam);
 
 
-    if (AimedAgentTeam == 200) {
-        ?pr(P);
-        .nth(6, AimedAgent, NewDestination);
-        ?debug(Mode); if (Mode<=1) { .println("NUEVO DESTINO DEBERIA SER: ", NewDestination); }
-        // Para seguir matando a todos
-        !add_task(task(P, "TASK_GOTO_POSITION", M, NewDestination, ""));
-        -+state(standing);
-        -+pr(P+1);
-    }
-    .
+        if (AimedAgentTeam == 200) {
+    
+                .nth(6, AimedAgent, NewDestination);
+                ?debug(Mode); if (Mode<=1) { .println("NUEVO DESTINO DEBERIA SER: ", NewDestination); }
+          
+            }
+ .
 
 /**
 * Action to do when the agent is looking at.
@@ -174,30 +156,7 @@ type("CLASS_MEDIC").
 */  
 +!perform_no_ammo_action . 
    /// <- ?debug(Mode); if (Mode<=1) { .println("YOUR CODE FOR PERFORM_NO_AMMO_ACTION GOES HERE.") }.
-
-
-// TODO: QUITAR PARA MIRAR SI HAY MEDICINAS... NO FUNCIONA BIEN
-+!check_medicine 
-    <- 
-    ?my_health_threshold(Ht);
-    ?my_health(Hr);
-    if (Hr <= Ht & not current_task(task(_,"TASK_RUN_AWAY",_,_,_))) { 
-            ?fovObjects(Objects);
-            .length(Objects, Length);
-            -+count(0);
-            while(count(X) & X < Length){
-                .nth(X, Objects, Object);
-                .nth(4, Object, Dis);
-                .nth(2, Object, Type);
-                if(Type == 1001 & Dis < 17){
-                    .nth(6, Object, Pos);
-                    +medics(Pos);
-                    -+state(standing);
-                }
-                -+count(X+1);
-            }
-    }
-    .
+    
 /**
      * Action to do when an agent is being shot.
      * 
@@ -207,19 +166,7 @@ type("CLASS_MEDIC").
      * <em> It's very useful to overload this plan. </em>
      * 
      */
-+!perform_injury_action
-    <-
-    ?my_health(Hr);
-    if (Hr < 60) {
-        create_medic_pack;
-    }
-
-    if (not aimed_agent) {
-        .println("Atacando por la espalda!");
-        ?my_position(X, Y, Z);
-        !add_task(task(2500, "TASK_GOTO_POSITION", M, pos(X-5, Y, Z), ""));
-    }
-    .
++!perform_injury_action .
     ///<- ?debug(Mode); if (Mode<=1) { .println("YOUR CODE FOR PERFORM_INJURY_ACTION GOES HERE.") }. 
         
 
@@ -228,24 +175,18 @@ type("CLASS_MEDIC").
 /////////////////////////////////
 /**  You can change initial priorities if you want to change the behaviour of each agent  **/+!setup_priorities
     <-  +task_priority("TASK_NONE",0);
-        +task_priority("TASK_GIVE_MEDICPAKS", 0);
+        +task_priority("TASK_GIVE_MEDICPAKS", 2000);
         +task_priority("TASK_GIVE_AMMOPAKS", 0);
         +task_priority("TASK_GIVE_BACKUP", 0);
-        +task_priority("TASK_GET_OBJECTIVE",2000);
-        +task_priority("TASK_ATTACK", 1700);
+        +task_priority("TASK_GET_OBJECTIVE",1000);
+        +task_priority("TASK_ATTACK", 1000);
         +task_priority("TASK_RUN_AWAY", 1500);
         +task_priority("TASK_GOTO_POSITION", 750);
         +task_priority("TASK_PATROLLING", 500);
         +task_priority("TASK_WALKING_PATH", 1750).   
 
 
-+teammateMessageIncoming(Z)[source(A)]
-    <-	
-    ?debug(Mode); if (Mode<=4) { .println("teammateMessageIncoming.")}
-    ?teamMessagesExpected(Y);
-    ?debug(Mode); if (Mode<=4) { .println("teamMessagesExpected: ",Y)}
-    +teamMessagesExpected(Y+1);
-    .
+
 /////////////////////////////////
 //  UPDATE TARGETS
 /////////////////////////////////
@@ -258,7 +199,9 @@ type("CLASS_MEDIC").
  * <em> It's very useful to overload this plan. </em>
  *
  */
-+!update_targets .
++!update_targets
+	<-	?debug(Mode); if (Mode<=1) { .println("YOUR CODE FOR UPDATE_TARGETS GOES HERE.") }.
+	
 	
 	
 /////////////////////////////////
@@ -273,18 +216,7 @@ type("CLASS_MEDIC").
  *
  */
  +!checkMedicAction
-    <-  
-    ?teamMessagesExpected(Y);
-    ?debug(Mode); if (Mode<=3) { .println("Team messages expected: ", Y)}
-    if(Y > 0){
-        +teamMessagesExpected(Y-1);
-        ?debug(Mode); if (Mode<=4) { .println("Esperaba un mensaje, voy a ayudar")}
-        -+medicAction(on);
-    }else{
-        ?debug(Mode); if (Mode<=4) { .println("No esperaba ningun mensaje, no voy a ayudar")}
-        -+medicAction(false);
-    }
-    .
+     <-  -+medicAction(on).
       // go to help
       
       
@@ -300,7 +232,7 @@ type("CLASS_MEDIC").
  *
  */
  +!checkAmmoAction
-     <-  -+fieldopsAction(false).
+     <-  -+fieldopsAction(on).
       //  go to help
 
 
@@ -352,6 +284,8 @@ type("CLASS_MEDIC").
 /////////////////////////////////
 //  ANSWER_ACTION_CFM_OR_CFA
 /////////////////////////////////
+
+
     
 +cfm_agree[source(M)]
    <- ?debug(Mode); if (Mode<=1) { .println("YOUR CODE FOR cfm_agree GOES HERE.")};
@@ -375,15 +309,5 @@ type("CLASS_MEDIC").
 /////////////////////////////////
 
 +!init
-   <- ?debug(Mode); if (Mode<=1) { .println("YOUR CODE FOR init GOES HERE.")}
-   +teamMessagesExpected(0);
-   .my_name(N);
-   .random(R);
-   ?my_position(X, Y, Z);
-   .wait(10000);
-   !add_task(task(5000,"TASK_GOTO_POSITION", N, pos(X, Y, Z-110-R*2),""));
-   // 120, 0, ~236 (220+10*[0-1]*2)
-   !add_task(task(4500,"TASK_GOTO_POSITION", N, pos(120, 0, 220+10*R*2),""));
+   <- ?debug(Mode); if (Mode<=1) { .println("YOUR CODE FOR init GOES HERE.")}.  
 
-   // TODO: ¿estaria bien meter una posicion intermedia para que lleguen desperdigados?
-   .
