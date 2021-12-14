@@ -153,7 +153,8 @@ type("CLASS_MEDIC").
         // Para seguir matando a todos
         if (not (objectivePackTaken(on))) {
             !add_task(task(3000, "TASK_GOTO_POSITION", M, NewDestination, ""));
-            -+state(standing);
+            // TODO: mirar si es necesario!
+            //-+state(standing);
         }
     }
     .
