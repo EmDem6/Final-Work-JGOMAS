@@ -1,26 +1,26 @@
 Winner Team: ALLIED
-Duration: [3m:43s]
+Duration: [3m:54s]
 
 Statistics for ALLIED TEAM
 	-GENERAL:
-		* Alive:       	4
-		* Avrg. Health:	54.75
+		* Alive:       	3
+		* Avrg. Health:	37.333332
 
 	-OBJECTIVE:
 		* Times Taken: 	1
 		* Times Lost:  	0
 
 	-SHOTS:
-		* EnemyHit:    	85
-		* TeamHit:     	62
-		* FailedHit:   	31
-		* TOTAL:       	178
+		* EnemyHit:    	157
+		* TeamHit:     	104
+		* FailedHit:   	52
+		* TOTAL:       	313
 
 	-MEDIC PACKS:
-		* Delivered:   	32
-		* Team Taken:  	12
+		* Delivered:   	28
+		* Team Taken:  	14
 		* Enemy Taken: 	10
-		* Not Taken:   	10
+		* Not Taken:   	4
 
 	-AMMO PACKS:
 		* Delivered:   	0
@@ -29,30 +29,30 @@ Statistics for ALLIED TEAM
 		* Not Taken:   	0
 
 	-EFICIENCY:
-		* Medic:       	0.6875
+		* Medic:       	0.8571428571428572
 		* FieldOps:    	0.0
-		* Army:        	0.9775280898876404
+		* Army:        	0.9904153354632588
 
 	-ANTI-EFICIENCY:
-		* Medic:       	0.3125
+		* Medic:       	0.35714285714285715
 		* FieldOps:    	0.0
-		* Army:        	0.06451612903225806
+		* Army:        	0.028846153846153848
 
 
 Statistics for AXIS TEAM
 	-GENERAL:
-		* Alive:       	4
-		* Avrg. Health:	41.0
+		* Alive:       	3
+		* Avrg. Health:	51.333332
 
 	-OBJECTIVE:
 		* Times Taken: 	0
 		* Times Lost:  	1
 
 	-SHOTS:
-		* EnemyHit:    	281
-		* TeamHit:     	125
-		* FailedHit:   	31
-		* TOTAL:       	437
+		* EnemyHit:    	224
+		* TeamHit:     	111
+		* FailedHit:   	111
+		* TOTAL:       	446
 
 	-MEDIC PACKS:
 		* Delivered:   	0
@@ -61,19 +61,19 @@ Statistics for AXIS TEAM
 		* Not Taken:   	0
 
 	-AMMO PACKS:
-		* Delivered:   	4
-		* Team Taken:  	1
+		* Delivered:   	0
+		* Team Taken:  	0
 		* Enemy Taken: 	0
-		* Not Taken:   	3
+		* Not Taken:   	0
 
 	-EFICIENCY:
 		* Medic:       	0.0
-		* FieldOps:    	0.25
-		* Army:        	0.9908466819221968
+		* FieldOps:    	0.0
+		* Army:        	0.9932735426008968
 
 	-ANTI-EFICIENCY:
 		* Medic:       	0.0
 		* FieldOps:    	0.0
-		* Army:        	0.032
+		* Army:        	0.02702702702702703
 
 
