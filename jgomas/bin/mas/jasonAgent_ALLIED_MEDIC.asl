@@ -133,22 +133,19 @@ type("CLASS_MEDIC").
     <-  
     // Aimed agents have the following format:
     // [#, TEAM, TYPE, ANGLE, DISTANCE, HEALTH, POSITION ]
-    +pr(3000);
     ?aimed_agent(AimedAgent);
     ?debug(Mode); if (Mode<=1) { .println("AimedAgent ", AimedAgent); }
     .nth(1, AimedAgent, AimedAgentTeam);
     ?debug(Mode); if (Mode<=2) { .println("BAJO EL PUNTO DE MIRA TENGO A ALGUIEN DEL EQUIPO ", AimedAgentTeam);             }
     ?my_formattedTeam(MyTeam);
 
-
+    // TODO: mirar si lo de la prioridad mejora algo!
     if (AimedAgentTeam == 200) {
-        ?pr(P);
         .nth(6, AimedAgent, NewDestination);
         ?debug(Mode); if (Mode<=1) { .println("NUEVO DESTINO DEBERIA SER: ", NewDestination); }
         // Para seguir matando a todos
-        !add_task(task(P, "TASK_GOTO_POSITION", M, NewDestination, ""));
+        !add_task(task(3000, "TASK_GOTO_POSITION", M, NewDestination, ""));
         -+state(standing);
-        -+pr(P+1);
     }
     .
 
@@ -217,7 +214,7 @@ type("CLASS_MEDIC").
     if (not aimed_agent) {
         .println("Atacando por la espalda!");
         ?my_position(X, Y, Z);
-        !add_task(task(2500, "TASK_GOTO_POSITION", M, pos(X-5, Y, Z), ""));
+        !add_task(task(4000, "TASK_GOTO_POSITION", M, pos(X-5, Y, Z), ""));
     }
     .
     ///<- ?debug(Mode); if (Mode<=1) { .println("YOUR CODE FOR PERFORM_INJURY_ACTION GOES HERE.") }. 
